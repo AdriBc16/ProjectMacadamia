@@ -20,4 +20,7 @@
     <string name="login">Log In</string>
     <string name="noaccount">Dont have an account?</string>
 
+    <string name="profile">Profile</string>
+    <string name="myorders">My Orders</string>
+
 </resources>

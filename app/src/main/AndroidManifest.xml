@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectMacadamia"
         tools:targetApi="31">
+
         <activity
             android:name=".activiy_login"
             android:exported="false" />

@@ -90,11 +90,15 @@
                 android:id="@+id/button_register"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:minWidth="48dp"
+                android:padding="10dp"
                 android:text="@string/registrarse"
                 android:textColor="@android:color/background_dark"
                 android:textStyle="bold"
                 android:clickable="true"
                 android:focusable="true" />
+
         </LinearLayout>
 
     </LinearLayout>

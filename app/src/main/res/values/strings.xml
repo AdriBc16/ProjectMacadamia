@@ -2,8 +2,8 @@
     <string name="app_name">Macadamia Aplication</string>
     <string name="mainPantalla">Pantalla Principal</string>
     <string name="btn_ordenar">Order Now</string>
-    <string name="descripcion_logo">Logo de la app</string>
-    <string name="fondoBlancoConDisenio">Fondo Blanco con Disenio</string>
+    <string name="description_logo">Logo de la app</string>
+    <string name="whitewallpaper">Fondo Blanco con Disenio</string>
     <string name="yourcookieday">Imagen Your Cookie Day</string>
     <string name="inicioSesion">Log In</string>
     <string name="registrarse">Register</string>

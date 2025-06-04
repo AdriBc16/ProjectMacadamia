@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:fontFamily=""
             android:text="@string/create_account"
-            android:textColor="@color/verde2"
+            android:textColor="@color/medium_green"
             android:textSize="30sp"
             android:textStyle="bold"
 
@@ -106,7 +106,7 @@
             android:layout_width="222dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="35dp"
-            android:backgroundTint="@color/verde2"
+            android:backgroundTint="@color/medium_green"
             android:text="@string/login"
             android:textSize="18sp"
             app:cornerRadius="8dp" />

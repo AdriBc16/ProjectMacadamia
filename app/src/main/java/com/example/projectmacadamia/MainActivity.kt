@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        val orderNowButton = findViewById<Button>(R.id.orderNow)
+        val orderNowButton = findViewById<Button>(R.id.bottonOrderNow)
         orderNowButton.setOnClickListener(View.OnClickListener {view : View? ->
             val intent = Intent(this@MainActivity, elegir::class.java)
             startActivity(intent)

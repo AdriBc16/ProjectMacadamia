@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Estilo para botón con borde cuadrado -->
-    <style name="BotonVerdeClaro" parent="Widget.MaterialComponents.Button">
-        <item name="android:backgroundTint">@color/verdeClarito</item>
+
+    <!-- Style for light green button -->
+    <style name="LightGreenButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">@color/light_green</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:padding">12dp</item>
         <item name="android:textSize">16sp</item>
@@ -11,8 +12,9 @@
         <item name="alpha">0.5</item>
     </style>
 
-    <style name="BotonVerdeOscuro" parent="Widget.MaterialComponents.Button">
-        <item name="android:backgroundTint">@color/verde</item>
+    <!-- Style for dark green button -->
+    <style name="DarkGreenButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">@color/dark_green</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:padding">12dp</item>
         <item name="android:textSize">16sp</item>
@@ -20,10 +22,11 @@
         <item name="elevation">0dp</item>
     </style>
 
-    <style name="BotonGoogle" parent="Widget.MaterialComponents.Button">
+    <!-- Style for Google button -->
+    <style name="GoogleButton" parent="Widget.MaterialComponents.Button">
         <item name="android:backgroundTint">@color/white</item>
-        <item name="android:textColor">@color/plomo</item>
-        <item name="strokeColor">@color/verde</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="strokeColor">@color/dark_green</item>
         <item name="android:padding">12dp</item>
         <item name="android:textSize">16sp</item>
         <item name="cornerRadius">30dp</item>
@@ -31,6 +34,7 @@
         <item name="elevation">0dp</item>
     </style>
 
+    <!-- Rounded background view -->
     <style name="GreenRoundedView">
         <item name="android:layout_width">222dp</item>
         <item name="android:layout_height">40dp</item>
@@ -38,20 +42,24 @@
         <item name="android:background">@drawable/views</item>
     </style>
 
+    <!-- Style for EditText -->
     <style name="MyEditTextStyle">
         <item name="android:layout_width">200dp</item>
-        <item name="android:layout_height">48dp</item> <!-- Altura mínima recomendada -->
-        <item name="android:minHeight">48dp</item> <!-- Para asegurar el tamaño mínimo -->
-        <item name="android:background">@null</item> <!-- Fondo con padding interno -->
+        <item name="android:layout_height">48dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:background">@null</item>
         <item name="android:textColorHint">@android:color/white</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:paddingStart">12dp</item>
         <item name="android:paddingEnd">12dp</item>
-
     </style>
 
-
-
-
+    <style name="LightGreenButtonMenu" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:textColor">@color/dark_green</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="alpha">0.5</item>
+    </style>
 
 </resources>

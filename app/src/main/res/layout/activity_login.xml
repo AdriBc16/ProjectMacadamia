@@ -39,11 +39,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="30sp"
-            android:textColor="@color/verde2"
+            android:textColor="@color/medium_green"
             android:textStyle="bold"
             android:fontFamily=""
             android:layout_marginTop="80dp"
-            android:text="@string/inicioSesion"
+            android:text="@string/signin"
 
             />
 
@@ -65,9 +65,9 @@
             android:layout_width="222dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="35dp"
-            android:backgroundTint="@color/verde2"
+            android:backgroundTint="@color/medium_green"
             app:cornerRadius="8dp"
-            android:text="@string/inicioSesion"
+            android:text="@string/signin"
             android:textSize="18sp"/>
 
         <LinearLayout
@@ -90,15 +90,15 @@
                 android:id="@+id/button_register"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:minWidth="48dp"
-                android:padding="10dp"
-                android:text="@string/registrarse"
+                android:text="@string/register"
                 android:textColor="@android:color/background_dark"
                 android:textStyle="bold"
                 android:clickable="true"
-                android:focusable="true" />
-
+                android:focusable="true"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:padding="12dp"
+                android:gravity="center"/>
         </LinearLayout>
 
     </LinearLayout>

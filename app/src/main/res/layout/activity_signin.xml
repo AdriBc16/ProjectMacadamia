@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/signin"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/fondo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.1"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/fondo_inicio" />
+
+    <View
+        style="@style/GreenRoundedView"
+        android:layout_marginTop="238dp" />
+
+    <View
+        style="@style/GreenRoundedView"
+        android:layout_marginTop="300dp" />
+
+    <View
+        style="@style/GreenRoundedView"
+        android:layout_marginTop="360dp" />
+
+    <View
+        style="@style/GreenRoundedView"
+        android:layout_marginTop="420dp" />
+
+    <View
+        style="@style/GreenRoundedView"
+        android:layout_marginTop="480dp" />
+
+    <View
+        style="@style/GreenRoundedView"
+        android:layout_marginTop="540dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="top|center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/icono"
+            android:layout_width="222dp"
+            android:layout_height="165dp"
+            android:layout_gravity="top|center"
+            app:srcCompat="@drawable/icono_final2" />
+
+        <TextView
+            android:id="@+id/create_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily=""
+            android:text="@string/create_account"
+            android:textColor="@color/medium_green"
+            android:textSize="30sp"
+            android:textStyle="bold"
+
+            />
+
+        <EditText
+            android:id="@+id/user"
+            style="@style/MyEditTextStyle"
+            android:layout_marginTop="30dp"
+            android:hint="@string/user" />
+
+        <EditText
+            android:id="@+id/phone_number"
+            style="@style/MyEditTextStyle"
+            android:layout_marginTop="12dp"
+            android:hint="@string/phone_number" />
+
+        <EditText
+            android:id="@+id/email"
+            style="@style/MyEditTextStyle"
+            android:layout_marginTop="12dp"
+            android:hint="@string/email" />
+
+        <EditText
+            android:id="@+id/password"
+            style="@style/MyEditTextStyle"
+            android:layout_marginTop="12dp"
+            android:hint="@string/password" />
+
+        <EditText
+            android:id="@+id/adress"
+            style="@style/MyEditTextStyle"
+            android:layout_marginTop="12dp"
+            android:hint="@string/adress" />
+
+        <EditText
+            android:id="@+id/categories"
+            style="@style/MyEditTextStyle"
+            android:layout_marginTop="12dp"
+            android:hint="@string/categories" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="222dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:backgroundTint="@color/medium_green"
+            android:text="@string/login"
+            android:textSize="18sp"
+            app:cornerRadius="8dp" />
+
+
+    </LinearLayout>
+</FrameLayout>

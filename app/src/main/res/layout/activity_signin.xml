@@ -107,7 +107,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="35dp"
             android:backgroundTint="@color/medium_green"
-            android:text="@string/login"
+            android:text="@string/signin"
             android:textSize="18sp"
             app:cornerRadius="8dp" />
 

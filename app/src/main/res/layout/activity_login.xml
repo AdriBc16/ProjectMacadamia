@@ -43,7 +43,7 @@
             android:textStyle="bold"
             android:fontFamily=""
             android:layout_marginTop="80dp"
-            android:text="@string/signin"
+            android:text="@string/login"
 
             />
 
@@ -67,7 +67,7 @@
             android:layout_marginTop="35dp"
             android:backgroundTint="@color/medium_green"
             app:cornerRadius="8dp"
-            android:text="@string/signin"
+            android:text="@string/login"
             android:textSize="18sp"/>
 
         <LinearLayout
@@ -87,10 +87,10 @@
 
                 />
             <TextView
-                android:id="@+id/button_register"
+                android:id="@+id/button_signin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/register"
+                android:text="@string/signin"
                 android:textColor="@android:color/background_dark"
                 android:textStyle="bold"
                 android:clickable="true"

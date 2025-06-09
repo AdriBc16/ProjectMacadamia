@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/fragment_blank">
+    app:startDestination="@id/profilefragment">
 
     <fragment
-        android:id="@+id/fragment_blank"
-        android:name="com.example.projectmacadamia.BlankFragment"
+        android:id="@+id/profilefragment"
+        android:name="com.example.projectmacadamia.ProfileFragment"
         android:label="Blank"
-        tools:layout="@layout/fragment_blank" />
+        tools:layout="@layout/fragment_profile" />
 </navigation>

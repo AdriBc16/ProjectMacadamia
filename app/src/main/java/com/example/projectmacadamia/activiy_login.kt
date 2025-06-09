@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -15,10 +16,11 @@ class activiy_login : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_login)
-        val orderNowButton = findViewById<Button>(R.id.botonLogin)
-        orderNowButton.setOnClickListener(View.OnClickListener {view : View? ->
-            val intent = Intent(this@activiy_login, activity_profile::class.java)
-            startActivity(intent)
-        })
+        val botonLogIn = findViewById<Button>(R.id.botonLogin)
+        val botonRegister = findViewById<TextView>(R.id.button_signin)
+
+        botonRegister.setOnClickListener {
+
+        }
     }
 }

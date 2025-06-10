@@ -3,11 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/profilefragment">
+    app:startDestination="@id/profileFragment">
 
     <fragment
-        android:id="@+id/profilefragment"
+        android:id="@+id/profileFragment"
         android:name="com.example.projectmacadamia.ProfileFragment"
-        android:label="Blank"
+        android:label="Profile"
         tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.projectmacadamia.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.example.projectmacadamia.CartFragment"
+        android:label="ShoppigCart"
+        tools:layout="@layout/fragment_cart" />
+
+
 </navigation>

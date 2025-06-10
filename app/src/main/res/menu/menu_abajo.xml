@@ -4,23 +4,23 @@
     >
 
     <item
-        android:id="@+id/inboxFragment"
+        android:id="@+id/homeFragment"
         android:icon="@drawable/casita"
-        android:title=""
-
+        android:title="Home"
         app:showAsAction="always"
 
         />
     <item
-        android:id="@+id/sentFragment"
+        android:id="@+id/cartFragment"
         android:icon="@drawable/carrito"
-        android:title=""
+        android:title="Carrito"
         app:showAsAction="always"
         />
+
     <item
-        android:id="@+id/helpFragment"
+        android:id="@+id/profileFragment"
         android:icon="@drawable/persona"
-        android:title=""
+        android:title="Perfil"
         app:showAsAction="always"
         />
 </menu>

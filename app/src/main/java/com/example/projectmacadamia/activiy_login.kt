@@ -17,10 +17,16 @@ class activiy_login : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_login)
         val botonLogIn = findViewById<Button>(R.id.botonLogin)
-        val botonRegister = findViewById<TextView>(R.id.button_signin)
+        val botonSignin = findViewById<TextView>(R.id.button_signin)
 
-        botonRegister.setOnClickListener {
+        botonSignin.setOnClickListener {
+            val intent = Intent(this@activiy_login, activity_signin::class.java)
+            startActivity(intent)
+        }
 
+        botonLogIn.setOnClickListener {
+            val intent = Intent(this@activiy_login, PadreActivity::class.java)
+            startActivity(intent)
         }
     }
 }

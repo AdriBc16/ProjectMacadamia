@@ -4,10 +4,10 @@
     <selectionStates>
       <SelectionState runConfigName="ProjectMacadamia.app">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-06-08T14:30:26.173024Z">
+        <DropdownSelection timestamp="2025-06-10T16:14:18.502512Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="LocalEmulator" identifier="path=/Users/irenelandivar/.android/avd/Pixel_3a.avd" />
+              <DeviceId pluginId="PhysicalDevice" identifier="serial=4200b129cc936597" />
             </handle>
           </Target>
         </DropdownSelection>

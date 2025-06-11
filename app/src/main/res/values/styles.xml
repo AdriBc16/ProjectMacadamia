@@ -74,6 +74,11 @@
         <item name="itemIconSize">30sp</item>
     </style>
 
+    <style name="ShapeAppearance.App.Rounded" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
 
 
 </resources>

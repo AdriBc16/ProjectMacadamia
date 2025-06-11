@@ -107,13 +107,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="35dp"
             android:backgroundTint="@color/medium_green"
-<<<<<<< HEAD
-            android:text="@string/signin"
-=======
-            android:text="@string/login"
->>>>>>> c2f4d5f (Actualizacion)
-            android:textSize="18sp"
-            app:cornerRadius="8dp" />
+            app:cornerRadius="8dp"
+            android:text="@string/login"/>
 
 
     </LinearLayout>

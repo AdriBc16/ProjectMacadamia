@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-=======
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
->>>>>>> c2f4d5f (Actualizacion)
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/produccion_layout"
@@ -11,33 +7,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-<<<<<<< HEAD
-=======
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginBottom="10dp"
-        android:contentDescription="@string/produccion"
-        android:scaleType="centerCrop"
-        android:src="@drawable/torta_zanahoria" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="10dp"
-        android:text="@string/producci_n"
-        android:textColor="@color/dark_green"
-        android:textSize="30sp"
-        android:textStyle="bold" />
->>>>>>> c2f4d5f (Actualizacion)
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-<<<<<<< HEAD
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="200dp"
@@ -50,15 +24,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:text="@string/producci_n"
             android:textColor="@color/dark_green"
             android:textSize="30sp"
             android:textStyle="bold" />
 
-=======
->>>>>>> c2f4d5f (Actualizacion)
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
@@ -73,20 +44,9 @@
             android:paddingStart="24dp"
             android:paddingEnd="24dp"
             android:text="@string/add"
-<<<<<<< HEAD
-            android:textSize="20sp"
             app:icon="@drawable/menu"
             app:iconPadding="30dp"
-            app:iconSize="60dp"
-            app:iconTintMode="multiply"
-
-            />
-=======
-            app:icon="@drawable/menu"
-            app:iconPadding="30dp"
-            app:iconSize="60dp"
-            app:iconTintMode="multiply" />
->>>>>>> c2f4d5f (Actualizacion)
+            app:iconSize="60dp"/>
 
         <View
             android:layout_width="match_parent"
@@ -102,10 +62,6 @@
             android:paddingStart="29dp"
             android:paddingEnd="29dp"
             android:text="@string/orders"
-<<<<<<< HEAD
-            android:textSize="20sp"
-=======
->>>>>>> c2f4d5f (Actualizacion)
             app:icon="@drawable/pedido"
             app:iconPadding="35dp"
             app:iconSize="50dp"
@@ -125,10 +81,6 @@
             android:paddingStart="33dp"
             android:paddingEnd="33dp"
             android:text="@string/states"
-<<<<<<< HEAD
-            android:textSize="20sp"
-=======
->>>>>>> c2f4d5f (Actualizacion)
             app:icon="@drawable/estado"
             app:iconPadding="43dp"
             app:iconSize="38dp"
@@ -148,10 +100,6 @@
             android:paddingStart="32dp"
             android:paddingEnd="32dp"
             android:text="@string/estad_sticas"
-<<<<<<< HEAD
-            android:textSize="20sp"
-=======
->>>>>>> c2f4d5f (Actualizacion)
             app:icon="@drawable/estadistica"
             app:iconPadding="45dp"
             app:iconSize="36dp"
@@ -171,10 +119,6 @@
             android:paddingStart="32dp"
             android:paddingEnd="32dp"
             android:text="@string/earnings"
-<<<<<<< HEAD
-            android:textSize="20sp"
-=======
->>>>>>> c2f4d5f (Actualizacion)
             app:icon="@drawable/ganancias"
             app:iconPadding="45dp"
             app:iconSize="36dp"
@@ -185,9 +129,5 @@
             android:layout_height="2dp"
             android:background="@color/dark_green"/>
     </LinearLayout>
-<<<<<<< HEAD
 
 </FrameLayout>
-=======
-</LinearLayout>
->>>>>>> c2f4d5f (Actualizacion)

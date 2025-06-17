@@ -23,5 +23,17 @@
         android:label="ShoppigCart"
         tools:layout="@layout/fragment_cart" />
 
+    <fragment
+        android:id="@+id/tortasCatFragment"
+        android:name="com.example.projectmacadamia.TortasCatFragment"
+        android:label="TortasCatalogo"
+        tools:layout="@layout/fragment_tortas_cat" />
+
+    <fragment
+        android:id="@+id/produccionFragment"
+        android:name="com.example.projectmacadamia.ProduccionFragment"
+        android:label="Produccion"
+        tools:layout="@layout/fragment_produccion" />
+
 
 </navigation>

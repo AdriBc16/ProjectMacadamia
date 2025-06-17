@@ -15,9 +15,9 @@
         <activity
             android:name=".PadreActivity"
             android:exported="false" />
-        <activity
-            android:name=".activity_cliente"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".activity_cliente"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".activity_produccion"
             android:exported="false" />

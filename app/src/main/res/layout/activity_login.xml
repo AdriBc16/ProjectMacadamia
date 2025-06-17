@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activiy_login">
+
+    <ImageView
+        android:id="@+id/fondo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:alpha="0.1"
+        app:srcCompat="@drawable/fondo_inicio" />
+
+
+    <View style="@style/GreenRoundedView" android:layout_marginTop="360dp" />
+    <View style="@style/GreenRoundedView" android:layout_marginTop="420dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="top|center" >
+
+        <ImageView
+            android:id="@+id/icono"
+            android:layout_width="222dp"
+            android:layout_height="165dp"
+            android:layout_gravity="top|center"
+            android:layout_marginTop="40dp"
+            app:srcCompat="@drawable/icono_final2" />
+
+        <TextView
+            android:id="@+id/signin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textColor="@color/medium_green"
+            android:textStyle="bold"
+            android:fontFamily=""
+            android:layout_marginTop="80dp"
+            android:text="@string/login"
+
+            />
+
+        <EditText
+            android:id="@+id/user"
+            style="@style/MyEditTextStyle"
+            android:layout_marginTop="30dp"
+            android:hint="@string/user"
+            />
+        <EditText
+            android:id="@+id/password"
+            style="@style/MyEditTextStyle"
+            android:layout_marginTop="12dp"
+            android:hint="@string/password"
+            />
+
+        <Button
+            android:id="@+id/botonLogin"
+            android:layout_width="222dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:backgroundTint="@color/medium_green"
+            app:cornerRadius="8dp"
+            android:text="@string/login"
+            android:textSize="18sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="top|center">
+
+            <TextView
+                android:id="@+id/donthaveaccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily=""
+                android:text="@string/noaccount"
+                android:textStyle="bold"
+                android:layout_marginEnd="3dp"
+
+                />
+            <TextView
+                android:id="@+id/button_signin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/signin"
+                android:textColor="@android:color/background_dark"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:padding="12dp"
+                android:gravity="center"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,84 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/white_wallpaper_desing"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.1"
+        android:contentDescription="@string/white_wallpaper"
+        android:scaleType="centerCrop"
+        android:src="@drawable/fondo_inicio" />
+
+    <ImageView
+        android:id="@+id/yourcookieday"
+        android:layout_width="352dp"
+        android:layout_height="350dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="96dp"
+        android:contentDescription="@string/yourcookieday"
+        android:src="@drawable/yourcookieday" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom|center_horizontal"
+        android:orientation="horizontal"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp">
+
+        <Button
+            android:id="@+id/registrer_main"
+            style="@style/DarkGreenButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="120dp"
+            android:layout_weight="1"
+            android:text="@string/register" />
+
+        <Button
+            android:id="@+id/login_main"
+            style="@style/DarkGreenButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="120dp"
+            android:layout_weight="1"
+            android:text="@string/login" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:orientation="horizontal"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp">
+
+        <Button
+            android:id="@+id/connect_with_google"
+            style="@style/GoogleButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="180dp"
+            android:layout_weight="1"
+            android:text="@string/google"
+            app:icon="@drawable/google_logo"
+            app:iconGravity="textStart"
+            app:iconTintMode="multiply" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="165dp"
+        android:text="@string/ups">
+    </TextView>
+</FrameLayout>
+
+
+

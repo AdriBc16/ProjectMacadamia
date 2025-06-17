@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">Macadamia Application</string>
+    <string name="mainPantalla">Main Screen</string>
+    <string name="btn_order">Order Now</string>
+    <string name="description_logo">App Logo</string>
+    <string name="white_wallpaper">White Background with Design</string>
+    <string name="yourcookieday">Your Cookie Day Image</string>
+    <string name="login">Log In</string>
+    <string name="register">Register</string>
+    <string name="google">Connect with Google</string>
+    <string name="ups">This button is not configured</string>
+
+    <string name="create_account">Create Account</string>
+    <string name="user">Username</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="adress">Address</string>
+    <string name="categories">Categories</string>
+    <string name="signin">Sign In</string>
+    <string name="noaccount">Dont have an account?</string>
+
+    <string name="cookies">Cookies</string>
+    <string name="menu">Menu</string>
+    <string name="store">Tienda</string>
+    <string name="cookie">Galletas</string>
+    <string name="cake">Tortas</string>
+    <string name="chessecake">Chessecakes</string>
+    <string name="produccion">produccion</string>
+    <string name="producci_n">Producción</string>
+    <string name="estad_sticas">Estadísticas</string>
+    <string name="states">Estados</string>
+    <string name="orders">Pedidos</string>
+    <string name="add">Agregar</string>
+    <string name="earnings">Ganancias</string>
+
+    <string name="profile">Profile</string>
+    <string name="myorders">My Orders</string>
+    <string name="profileU">User</string>
+    <string name="shoppingCart">Carrito</string>
+    <string name="home">Casa</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="product_image">Imagen del producto</string>
+    <string name="delete">Eliminar producto</string>
+    <string name="precio_total">%1$d bs</string>
+    <string name="confirmar_con_precio">Confirm Order    %1$s</string>
+
+
+</resources>

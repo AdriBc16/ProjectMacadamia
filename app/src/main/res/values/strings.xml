@@ -40,4 +40,54 @@
     <string name="shoppingCart">Carrito</string>
     <string name="home">Casa</string>
 
+
+    <string name="price16">16 bs</string>
+    <string name="price18">18 bs</string>
+    <string name="price310">16p/310bs</string>
+    <string name="price350">16p/350bs</string>
+    <string name="price380">16p/380bs</string>
+    <string name="price430">15p/270bs  25p/430bs</string>
+    <string name="price440">15p/280bs  25p/440bs</string>
+    <string name="price450">15p/280bs  25p/450bs</string>
+
+    <string name="chocochips"> Galleta Tradicional Chocochips</string>
+    <string name="duo">Galleta Tradicional Duo</string>
+    <string name="rv">Galleta Tradicional Red velvet</string>
+    <string name="cac">Galleta Tradicional Cookies and Cream</string>
+    <string name="cinaroll">Galleta Tradicional Cinaroll</string>
+    <string name="fruity">Galleta Tradicional Fruity Pebbles</string>
+    <string name="lemon">Galleta Rellena Lemon Pie</string>
+    <string name="brookie">Galleta Rellena Brookie</string>
+    <string name="zanahoria">Galleta Rellena Zanahoria</string>
+    <string name="ddl">Galleta Rellena Dulce de leche</string>
+    <string name="nutella">Galleta Rellena Nutella</string>
+    <string name="ferrero">Galleta Rellena Ferrero</string>
+    <string name="tradis">16.00bs</string>
+    <string name="rellenas">18.00bs</string>
+
+    <string name="chocolateTrufado"> Cheesecake Chocolate trufado </string>
+    <string name="frutosRojos">Cheesecake Frutos Rojos</string>
+    <string name="manjar">Cheesecake Manjar</string>
+    <string name="carrotCake">Cheesecake Carrot Cake</string>
+    <string name="cookieDough">Cheesecake Cookie Dough</string>
+    <string name="nutellaCheese">Cheesecake Nutella</string>
+
+
+    <string name="chocolate"> Torta Chocolate Trufado </string>
+    <string name="caramelCarrot">Torta Caramel Carrot</string>
+    <string name="chocomouse">Torta ChocoMousse</string>
+    <string name="lemonBerry">Torta Lemon Berry</string>
+    <string name="birthday">Torta Birthday Cake</string>
+    <string name="redvelt">Torta Red Velvet</string>
+    <string name="cokieodugh">Torta Cookie Dough</string>
+    <string name="oreo">Torta Oreo</string>
+
+    <string name="anticipacion">PEDIDOS DE CATÁLOGO SON</string>
+    <string name="anticipacion2">CON 48H DE ANTICIPACIÓN</string>
+
+
+
+
+
+
 </resources>

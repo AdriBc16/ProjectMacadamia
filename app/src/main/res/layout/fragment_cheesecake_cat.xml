@@ -18,24 +18,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="600dp">
                 <ImageView
-                    android:id="@+id/galletasPortada"
+                    android:id="@+id/cheesePortada"
                     android:layout_width="match_parent"
-                    android:layout_height="600dp"
+                    android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/galletas_portada" />
+                    android:src="@drawable/cheesecake_portada" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/anticipacion"
-                    android:layout_marginTop="120dp"
+                    android:layout_marginTop="160dp"
                     android:textColor="@color/dark_green"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/anticipacion2"
-                    android:layout_marginTop="140dp"
+                    android:layout_marginTop="180dp"
                     android:textColor="@color/dark_green"/>
             </FrameLayout>
 
@@ -46,11 +46,29 @@
 
 
                 <ImageView
-                    android:id="@+id/galletas_tradi"
+                    android:id="@+id/cheesecake1"
                     android:layout_width="match_parent"
-                    android:layout_height="600dp"
+                    android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/galletas_tradis" />
+                    android:src="@drawable/cheesecake1" />
+
+                <Button
+                    android:id="@+id/chocolateTrufado"
+                    style="@style/bottonPrice"
+                    android:layout_width="110dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="260dp"
+                    android:layout_marginTop="225dp"
+                    android:text="@string/price310"/>
+
+                <Button
+                    android:id="@+id/frutosRojos"
+                    style="@style/bottonPrice"
+                    android:layout_width="110dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="42dp"
+                    android:layout_marginTop="538dp"
+                    android:text="@string/price350" />
 
             </FrameLayout>
 
@@ -60,30 +78,29 @@
                 android:layout_height="600dp">
 
                 <ImageView
-                    android:id="@+id/gallletas1"
+                    android:id="@+id/cheesecake2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/galletas1" />
-
-
-                <Button
-                    android:id="@+id/galletaChocoChips"
-                    style="@style/bottonPrice"
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="252dp"
-                    android:layout_marginTop="238dp"
-                    android:text="@string/price16" />
+                    android:src="@drawable/cheesecake2" />
 
                 <Button
-                    android:id="@+id/galletaDuo"
+                    android:id="@+id/manjar"
                     style="@style/bottonPrice"
                     android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="36dp"
-                    android:layout_marginTop="538dp"
-                    android:text="@string/price16" />
+                    android:layout_height="55dp"
+                    android:layout_marginStart="262dp"
+                    android:layout_marginTop="216dp"
+                    android:text="@string/price310" />
+
+                <Button
+                    android:id="@+id/carrotCake"
+                    style="@style/bottonPrice"
+                    android:layout_width="110dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="42dp"
+                    android:layout_marginTop="528dp"
+                    android:text="@string/price310" />
 
             </FrameLayout>
 
@@ -93,69 +110,29 @@
                 android:layout_height="600dp">
 
                 <ImageView
-                    android:id="@+id/gallletas2"
+                    android:id="@+id/cheesecake3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/galletas2" />
+                    android:src="@drawable/cheesecake3" />
 
                 <Button
-                    android:id="@+id/galletaRedvelvet"
+                    android:id="@+id/cookiedough"
                     style="@style/bottonPrice"
                     android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="252dp"
-                    android:layout_marginTop="238dp"
-                    android:text="@string/price16" />
+                    android:layout_height="55dp"
+                    android:layout_marginStart="260dp"
+                    android:layout_marginTop="228dp"
+                    android:text="@string/price310" />
 
                 <Button
-                    android:id="@+id/galletaOreo"
+                    android:id="@+id/cheesecakenutella"
                     style="@style/bottonPrice"
                     android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="36dp"
-                    android:layout_marginTop="538dp"
-                    android:text="@string/price16" />
-
-            </FrameLayout>
-
-
-            <ImageView
-                android:id="@+id/galletas_rellenas"
-                android:layout_width="match_parent"
-                android:layout_height="600dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/galletas_rellenas" />
-
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="600dp">
-
-                <ImageView
-                    android:id="@+id/gallletas4"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/galletas4" />
-
-                <Button
-                    android:id="@+id/galletaLemon"
-                    style="@style/bottonPrice"
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="252dp"
-                    android:layout_marginTop="238dp"
-                    android:text="@string/price18" />
-
-                <Button
-                    android:id="@+id/galletaBrookie"
-                    style="@style/bottonPrice"
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="36dp"
-                    android:layout_marginTop="538dp"
-                    android:text="@string/price18" />
+                    android:layout_height="55dp"
+                    android:layout_marginStart="42dp"
+                    android:layout_marginTop="531dp"
+                    android:text="@string/price350" />
 
             </FrameLayout>
 
@@ -165,29 +142,29 @@
                 android:layout_height="600dp">
 
                 <ImageView
-                    android:id="@+id/gallletas5"
+                    android:id="@+id/cheesecake4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/galletas5" />
+                    android:src="@drawable/cheesecake4" />
 
                 <Button
-                    android:id="@+id/galletaZanahoria"
+                    android:id="@+id/lemonPie"
                     style="@style/bottonPrice"
                     android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="252dp"
-                    android:layout_marginTop="238dp"
-                    android:text="@string/price18" />
+                    android:layout_height="55dp"
+                    android:layout_marginStart="260dp"
+                    android:layout_marginTop="224dp"
+                    android:text="@string/price310" />
 
                 <Button
-                    android:id="@+id/galletaDdl"
+                    android:id="@+id/lemonBerry"
                     style="@style/bottonPrice"
                     android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="36dp"
-                    android:layout_marginTop="538dp"
-                    android:text="@string/price18" />
+                    android:layout_height="55dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginTop="536dp"
+                    android:text="@string/price350" />
 
             </FrameLayout>
 
@@ -196,29 +173,60 @@
                 android:layout_height="600dp">
 
                 <ImageView
-                    android:id="@+id/gallletas6"
+                    android:id="@+id/cheesecake5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/galletas6" />
+                    android:src="@drawable/cheesecake5" />
 
                 <Button
-                    android:id="@+id/galletaNutella"
+                    android:id="@+id/chessecakeChocolate"
                     style="@style/bottonPrice"
                     android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="252dp"
-                    android:layout_marginTop="238dp"
-                    android:text="@string/price18" />
+                    android:layout_height="55dp"
+                    android:layout_marginStart="258dp"
+                    android:layout_marginTop="230dp"
+                    android:text="@string/price350" />
 
                 <Button
-                    android:id="@+id/galletaFerrero"
+                    android:id="@+id/oreo"
                     style="@style/bottonPrice"
                     android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="36dp"
-                    android:layout_marginTop="538dp"
-                    android:text="@string/price18" />
+                    android:layout_height="55dp"
+                    android:layout_marginStart="38dp"
+                    android:layout_marginTop="533dp"
+                    android:text="@string/price350" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="600dp">
+
+                <ImageView
+                    android:id="@+id/cheesecake6"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/cheesecake6" />
+
+                <Button
+                    android:id="@+id/appleCrumble"
+                    style="@style/bottonPrice"
+                    android:layout_width="110dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="258dp"
+                    android:layout_marginTop="230dp"
+                    android:text="@string/price310" />
+
+                <Button
+                    android:id="@+id/bombom"
+                    style="@style/bottonPrice"
+                    android:layout_width="110dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="44dp"
+                    android:layout_marginTop="539dp"
+                    android:text="@string/price380" />
 
             </FrameLayout>
         </LinearLayout>

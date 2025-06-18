@@ -1,936 +1,206 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/scrollView"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:padding="16dp"
-    >
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-    <GridLayout
-        android:id="@+id/gridLayout"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:columnCount="2"
-        android:rowCount="21"
-        android:useDefaultMargins="true"
-        android:alignmentMode="alignMargins"
-        android:columnOrderPreserved="false">
+        android:layout_height="match_parent"
+        tools:context=".CookieCatFragment">
 
-        <!-- First Item Image -->
-        <ImageView
-            android:id="@+id/imageChocolate"
-            android:layout_width="0dp"
-            android:layout_height="300dp"
-            android:layout_columnWeight="1"
-            android:layout_row="0"
-            android:layout_column="0"
-            android:scaleType="centerCrop"
-            android:src="@drawable/tortachocolate"
-            android:contentDescription="Chocolate cake with rich dark chocolate frosting on white plate" />
-
-        <!-- First Item Description -->
         <LinearLayout
-            android:id="@+id/descChocolate"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:orientation="vertical"
-            android:layout_row="0"
-            android:layout_column="1"
-            android:paddingStart="16dp"
-            android:paddingEnd="8dp">
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/titleChocolate"
+            <FrameLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="CHOCOLATE"
-                android:textColor="#748A74"
-                android:textStyle="bold"
-                android:textAllCaps="true"
-                android:textSize="20sp"
-                android:letterSpacing="0.1"
-                android:fontFamily="sans-serif-medium"
-                android:paddingBottom="4dp" />
+                android:layout_height="600dp">
 
-            <View
-                android:layout_width="64dp"
-                android:layout_height="1dp"
-                android:background="#B0B0B0"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:id="@+id/descTextChocolate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Torta húmeda de chocolate elaborada con cacao belga, rellena de ganache de chocolate y manjar. Decorada con nuestro decadente frosting de chocolate, drip de chocolate y ferrero"
-                android:textColor="#748A74"
-                android:textSize="14sp"
-                android:lineSpacingExtra="4dp"
-                android:fontFamily="sans-serif"
-                android:paddingBottom="16dp" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#748A74"
-                android:padding="12dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:minWidth="200dp"
-                android:layout_marginBottom="4dp"
-                android:layout_marginStart="0dp"
-                android:layout_marginEnd="0dp"
-                android:layout_gravity="start"
-                android:clipToOutline="true"
-                android:backgroundTint="#748A74"
-                android:shape="rectangle"
-                android:radius="12dp">
+                <ImageView
+                    android:id="@+id/tortaPortada"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/tortas_portada" />
 
                 <TextView
-                    android:id="@+id/textPriceChocolate1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="15 P / 280 bs"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    android:textSize="10sp"
-                    android:paddingEnd="16dp"
-                    android:fontFamily="sans-serif-medium" />
+                    android:layout_marginTop="160dp"
+                    android:text="@string/anticipacion"
+                    android:textColor="@color/dark_green" />
 
                 <TextView
-                    android:id="@+id/textPriceChocolate2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="25 P / 440 bs"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    android:textSize="10sp"
-                    android:fontFamily="sans-serif-medium" />
-            </LinearLayout>
+                    android:layout_marginTop="180dp"
+                    android:text="@string/anticipacion2"
+                    android:textColor="@color/dark_green" />
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="600dp">
+
+
+                <ImageView
+                    android:id="@+id/torta1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/tortas1" />
+
+                <Button
+                    android:id="@+id/tortaChocolate"
+                    style="@style/bottonPrice"
+                    android:layout_width="180dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="230dp"
+                    android:layout_marginTop="220dp"
+                    android:text="@string/price440" />
+
+                <Button
+                    android:id="@+id/TortacaramelCarrotCake"
+                    style="@style/bottonPrice"
+                    android:layout_width="180dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="530dp"
+                    android:text="@string/price430" />
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="600dp">
+
+                <ImageView
+                    android:id="@+id/tortas2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/tortas2" />
+
+
+                <Button
+                    android:id="@+id/tortaChocoMousse"
+                    style="@style/bottonPrice"
+                    android:layout_width="180dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="230dp"
+                    android:layout_marginTop="220dp"
+                    android:text="@string/price430" />
+
+                <Button
+                    android:id="@+id/TortaLemonBerry"
+                    style="@style/bottonPrice"
+                    android:layout_width="180dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="530dp"
+                    android:text="@string/price440" />
+
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="600dp">
+
+                <ImageView
+                    android:id="@+id/tortas3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/tortas3" />
+
+                <Button
+                    android:id="@+id/tortaBirthdayCake"
+                    style="@style/bottonPrice"
+                    android:layout_width="180dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="225dp"
+                    android:layout_marginTop="218dp"
+                    android:text="@string/price440" />
+
+                <Button
+                    android:id="@+id/TortaRedVelvet"
+                    style="@style/bottonPrice"
+                    android:layout_width="180dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="530dp"
+                    android:text="@string/price450" />
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="600dp">
+
+                <ImageView
+                    android:id="@+id/tortas4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/tortas4" />
+
+                <Button
+                    android:id="@+id/tortaCookieDough"
+                    style="@style/bottonPrice"
+                    android:layout_width="180dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="226dp"
+                    android:layout_marginTop="215dp"
+                    android:text="@string/price440" />
+
+                <Button
+                    android:id="@+id/TortaOreo"
+                    style="@style/bottonPrice"
+                    android:layout_width="180dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="540dp"
+                    android:text="@string/price440" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="600dp">
+
+                <ImageView
+                    android:id="@+id/tortas5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/tortas5" />
+
+                <Button
+                    android:id="@+id/BanoffePie"
+                    style="@style/bottonPrice"
+                    android:layout_width="180dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="220dp"
+                    android:layout_marginTop="216dp"
+                    android:text="@string/price430" />
+
+                <Button
+                    android:id="@+id/ChocolatePie"
+                    style="@style/bottonPrice"
+                    android:layout_width="180dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="513dp"
+                    android:text="@string/price440" />
+
+            </FrameLayout>
         </LinearLayout>
-
-        <!-- Second Item Description -->
-        <LinearLayout
-            android:id="@+id/descCarrot"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:orientation="vertical"
-            android:layout_row="1"
-            android:layout_column="0"
-            android:paddingEnd="16dp"
-            android:paddingStart="8dp"
-            android:layout_marginTop="16dp">
-
-            <TextView
-                android:id="@+id/titleCarrot"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="CARAMEL CARROT CAKE"
-                android:textColor="#748A74"
-                android:textStyle="bold"
-                android:textAllCaps="true"
-                android:textSize="20sp"
-                android:letterSpacing="0.1"
-                android:fontFamily="sans-serif-medium"
-                android:paddingBottom="4dp" />
-
-            <View
-                android:layout_width="70dp"
-                android:layout_height="1dp"
-                android:background="#B0B0B0"
-                android:layout_marginBottom="12dp" />
-
-            <TextView
-                android:id="@+id/descTextCarrot"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nuestra tradicional torta de zanahoria rellena de frosting elaborado con queso philadelphia, manjar y salted caramel. Decorada con frosting manjar y frutos secos"
-                android:textColor="#748A74"
-                android:textSize="14sp"
-                android:lineSpacingExtra="4dp"
-                android:fontFamily="sans-serif"
-                android:paddingBottom="16dp" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#748A74"
-                android:padding="12dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:minWidth="200dp"
-                android:clipToOutline="true"
-                android:backgroundTint="#748A74"
-                android:shape="rectangle"
-                app:cornerRadius="8dp"
-                android:radius="12dp">
-
-                <TextView
-                    android:id="@+id/textPriceCarrot1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="15 P / 270 bs"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    android:textSize="10sp"
-                    android:paddingEnd="16dp"
-                    android:fontFamily="sans-serif-medium" />
-
-                <TextView
-                    android:id="@+id/textPriceCarrot2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="25 P / 430 bs"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    android:textSize="10sp"
-                    android:fontFamily="sans-serif-medium" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- Second Item Image -->
-        <ImageView
-            android:id="@+id/imageCarrot"
-            android:layout_width="0dp"
-            android:layout_height="300dp"
-            android:layout_columnWeight="1"
-            android:layout_row="1"
-            android:layout_column="1"
-            android:scaleType="centerCrop"
-            android:src="@drawable/tortacaramelzanahoria"
-            android:contentDescription="Carrot cake decorated with frosting and nuts on white plate" />
-
-        <!-- Third Item Image -->
-        <ImageView
-            android:id="@+id/imageChocoMousse"
-            android:layout_width="0dp"
-            android:layout_height="300dp"
-            android:layout_columnWeight="1"
-            android:layout_row="2"
-            android:layout_column="0"
-            android:scaleType="centerCrop"
-            android:src="@drawable/tortachocomousse"
-            android:contentDescription="Chocolate cake with rich dark chocolate frosting on white plate" />
-
-        <!-- Third Item Description -->
-        <LinearLayout
-            android:id="@+id/descChocoMousse"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:orientation="vertical"
-            android:layout_row="2"
-            android:layout_column="1"
-            android:paddingStart="16dp"
-            android:paddingEnd="8dp">
-
-            <TextView
-                android:id="@+id/titleChocomoua"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="CHOCO MOUSSE"
-                android:textColor="#748A74"
-                android:textStyle="bold"
-                android:textAllCaps="true"
-                android:textSize="20sp"
-                android:letterSpacing="0.1"
-                android:fontFamily="sans-serif-medium"
-                android:paddingBottom="4dp" />
-
-            <View
-                android:layout_width="64dp"
-                android:layout_height="1dp"
-                android:background="#B0B0B0"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:id="@+id/descTextChocoMousse"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Torta de chocolate humeda belga rellena de mousse de chocolate semi amargo y salted caramel. Bañada en frosting de chocolate, decorada con cremoso de dulce de leche"
-                android:textColor="#748A74"
-                android:textSize="14sp"
-                android:lineSpacingExtra="4dp"
-                android:fontFamily="sans-serif"
-                android:paddingBottom="16dp" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#748A74"
-                android:padding="12dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:minWidth="200dp"
-                android:layout_marginBottom="4dp"
-                android:layout_marginStart="0dp"
-                android:layout_marginEnd="0dp"
-                android:layout_gravity="start"
-                android:clipToOutline="true"
-                android:backgroundTint="#748A74"
-                android:shape="rectangle"
-                android:radius="12dp">
-
-                <TextView
-                    android:id="@+id/textPriceChocoMousse1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="15 P / 270 bs"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    android:textSize="10sp"
-                    android:paddingEnd="16dp"
-                    android:fontFamily="sans-serif-medium" />
-
-                <TextView
-                    android:id="@+id/textPriceChocoMousse2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="25 P / 430 bs"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    android:textSize="10sp"
-                    android:fontFamily="sans-serif-medium" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- Fourth Item Description -->
-        <LinearLayout
-            android:id="@+id/descLemon"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:orientation="vertical"
-            android:layout_row="4"
-            android:layout_column="0"
-            android:paddingEnd="16dp"
-            android:paddingStart="8dp"
-            android:layout_marginTop="16dp">
-
-            <TextView
-                android:id="@+id/titleLemon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="LEMON BERRY"
-                android:textColor="#748A74"
-                android:textStyle="bold"
-                android:textAllCaps="true"
-                android:textSize="20sp"
-                android:letterSpacing="0.1"
-                android:fontFamily="sans-serif-medium"
-                android:paddingBottom="4dp" />
-
-            <View
-                android:layout_width="70dp"
-                android:layout_height="1dp"
-                android:background="#B0B0B0"
-                android:layout_marginBottom="12dp" />
-
-            <TextView
-                android:id="@+id/descTextLemon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Torta de vainilla y arandanos. rellena con frosting de limón y mermelada casera de frutos rojos"
-                android:textColor="#748A74"
-                android:textSize="14sp"
-                android:lineSpacingExtra="4dp"
-                android:fontFamily="sans-serif"
-                android:paddingBottom="16dp" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#748A74"
-                android:padding="12dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:minWidth="200dp"
-                android:clipToOutline="true"
-                android:backgroundTint="#748A74"
-                android:shape="rectangle"
-                app:cornerRadius="8dp"
-                android:radius="12dp">
-
-                <TextView
-                    android:id="@+id/textPriceLemon1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="15 P / 270 bs"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    android:textSize="10sp"
-                    android:paddingEnd="16dp"
-                    android:fontFamily="sans-serif-medium" />
-
-                <TextView
-                    android:id="@+id/textPriceLemon2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="25 P / 440 bs"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    android:textSize="10sp"
-                    android:fontFamily="sans-serif-medium" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- Fourth Item Image -->
-        <ImageView
-            android:id="@+id/imageLemon"
-            android:layout_width="0dp"
-            android:layout_height="300dp"
-            android:layout_columnWeight="1"
-            android:layout_row="4"
-            android:layout_column="1"
-            android:scaleType="centerCrop"
-            android:src="@drawable/tortalemonberry"
-            android:contentDescription="Carrot cake decorated with frosting and nuts on white plate" />
-
-        <!-- Fifth Item Image -->
-        <ImageView
-            android:id="@+id/imageBirthday"
-            android:layout_width="0dp"
-            android:layout_height="300dp"
-            android:layout_columnWeight="1"
-            android:layout_row="5"
-            android:layout_column="0"
-            android:scaleType="centerCrop"
-            android:src="@drawable/tortabirthday"
-            android:contentDescription="Chocolate cake with rich dark chocolate frosting on white plate" />
-
-        <!-- Fifth Item Description -->
-        <LinearLayout
-            android:id="@+id/descBirthday"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:orientation="vertical"
-            android:layout_row="5"
-            android:layout_column="1"
-            android:paddingStart="16dp"
-            android:paddingEnd="8dp">
-
-            <TextView
-                android:id="@+id/titleBirthday"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="BIRTHDAY CAKE"
-                android:textColor="#748A74"
-                android:textStyle="bold"
-                android:textAllCaps="true"
-                android:textSize="20sp"
-                android:letterSpacing="0.1"
-                android:fontFamily="sans-serif-medium"
-                android:paddingBottom="4dp" />
-
-            <View
-                android:layout_width="64dp"
-                android:layout_height="1dp"
-                android:background="#B0B0B0"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:id="@+id/descTextBirthday"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Torta de vainilla con chispas de colores, rellena con frosting clasico y manjar. Decorada con funfetti con drip de chocolate rosa o celeste"
-                android:textColor="#748A74"
-                android:textSize="14sp"
-                android:lineSpacingExtra="4dp"
-                android:fontFamily="sans-serif"
-                android:paddingBottom="16dp" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#748A74"
-                android:padding="12dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:minWidth="200dp"
-                android:layout_marginBottom="4dp"
-                android:layout_marginStart="0dp"
-                android:layout_marginEnd="0dp"
-                android:layout_gravity="start"
-                android:clipToOutline="true"
-                android:backgroundTint="#748A74"
-                android:shape="rectangle"
-                android:radius="12dp">
-
-                <TextView
-                    android:id="@+id/textPriceBirthday1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="15 P / 270 bs"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    android:textSize="10sp"
-                    android:paddingEnd="16dp"
-                    android:fontFamily="sans-serif-medium" />
-
-                <TextView
-                    android:id="@+id/textPriceBirthday2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="25 P / 440 bs"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    android:textSize="10sp"
-                    android:fontFamily="sans-serif-medium" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- Sixth Item Description -->
-        <LinearLayout
-            android:id="@+id/RedVelvet"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:orientation="vertical"
-            android:layout_row="6"
-            android:layout_column="0"
-            android:paddingEnd="16dp"
-            android:paddingStart="8dp"
-            android:layout_marginTop="16dp">
-
-            <TextView
-                android:id="@+id/titleRedVelvet"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="RED VELVET"
-                android:textColor="#748A74"
-                android:textStyle="bold"
-                android:textAllCaps="true"
-                android:textSize="20sp"
-                android:letterSpacing="0.1"
-                android:fontFamily="sans-serif-medium"
-                android:paddingBottom="4dp" />
-
-            <View
-                android:layout_width="70dp"
-                android:layout_height="1dp"
-                android:background="#B0B0B0"
-                android:layout_marginBottom="12dp" />
-
-            <TextView
-                android:id="@+id/descRedVelvet"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Torta de red velvet rellena de frosting clasico elaborado con philadelphia y ganache de chocolate o manjar. Decorada con frosting clasico y frutos rojos"
-                android:textColor="#748A74"
-                android:textSize="14sp"
-                android:lineSpacingExtra="4dp"
-                android:fontFamily="sans-serif"
-                android:paddingBottom="16dp" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#748A74"
-                android:padding="12dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:minWidth="200dp"
-                android:clipToOutline="true"
-                android:backgroundTint="#748A74"
-                android:shape="rectangle"
-                app:cornerRadius="8dp"
-                android:radius="12dp">
-
-                <TextView
-                    android:id="@+id/textPriceRedVelvet1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="15 P / 278 bs"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    android:textSize="10sp"
-                    android:paddingEnd="16dp"
-                    android:fontFamily="sans-serif-medium" />
-
-                <TextView
-                    android:id="@+id/textPriceRedVelvet2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="25 P / 450 bs"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    android:textSize="10sp"
-                    android:fontFamily="sans-serif-medium" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- Sixth Item Image -->
-        <ImageView
-            android:id="@+id/imageRedVelvet"
-            android:layout_width="0dp"
-            android:layout_height="300dp"
-            android:layout_columnWeight="1"
-            android:layout_row="6"
-            android:layout_column="1"
-            android:scaleType="centerCrop"
-            android:src="@drawable/tortaredvelvet"
-            android:contentDescription="Carrot cake decorated with frosting and nuts on white plate" />
-
-        <!-- Seventh Item Image -->
-        <ImageView
-            android:id="@+id/imageCookieDough"
-            android:layout_width="0dp"
-            android:layout_height="300dp"
-            android:layout_columnWeight="1"
-            android:layout_row="7"
-            android:layout_column="0"
-            android:scaleType="centerCrop"
-            android:src="@drawable/tortacookiedough"
-            android:contentDescription="Chocolate cake with rich dark chocolate frosting on white plate" />
-
-        <!-- Seventh Item Description -->
-        <LinearLayout
-            android:id="@+id/descCookieDough"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:orientation="vertical"
-            android:layout_row="7"
-            android:layout_column="1"
-            android:paddingStart="16dp"
-            android:paddingEnd="8dp">
-
-            <TextView
-                android:id="@+id/titleCookieDough"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="COOKIE DOUGH"
-                android:textColor="#748A74"
-                android:textStyle="bold"
-                android:textAllCaps="true"
-                android:textSize="20sp"
-                android:letterSpacing="0.1"
-                android:fontFamily="sans-serif-medium"
-                android:paddingBottom="4dp" />
-
-            <View
-                android:layout_width="64dp"
-                android:layout_height="1dp"
-                android:background="#B0B0B0"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:id="@+id/descTextCookieDough"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Torta de vainilla con chispas de chocolate, ganache de chocolate y frosting clasico. Decorada con frosting clasico elaborado con queso philadelphia, drip de chocolate y galletas mini "
-                android:textColor="#748A74"
-                android:textSize="14sp"
-                android:lineSpacingExtra="4dp"
-                android:fontFamily="sans-serif"
-                android:paddingBottom="16dp" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#748A74"
-                android:padding="12dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:minWidth="200dp"
-                android:layout_marginBottom="4dp"
-                android:layout_marginStart="0dp"
-                android:layout_marginEnd="0dp"
-                android:layout_gravity="start"
-                android:clipToOutline="true"
-                android:backgroundTint="#748A74"
-                android:shape="rectangle"
-                android:radius="12dp">
-
-                <TextView
-                    android:id="@+id/textPriceCookieDough1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="15 P / 270 bs"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    android:textSize="10sp"
-                    android:paddingEnd="16dp"
-                    android:fontFamily="sans-serif-medium" />
-
-                <TextView
-                    android:id="@+id/textPriceCookieDough2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="25 P / 440 bs"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    android:textSize="10sp"
-                    android:fontFamily="sans-serif-medium" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- Eight Item Description -->
-        <LinearLayout
-            android:id="@+id/descOreo"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:orientation="vertical"
-            android:layout_row="8"
-            android:layout_column="0"
-            android:paddingEnd="16dp"
-            android:paddingStart="8dp"
-            android:layout_marginTop="16dp">
-
-            <TextView
-                android:id="@+id/titleOreo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="OREO"
-                android:textColor="#748A74"
-                android:textStyle="bold"
-                android:textAllCaps="true"
-                android:textSize="20sp"
-                android:letterSpacing="0.1"
-                android:fontFamily="sans-serif-medium"
-                android:paddingBottom="4dp" />
-
-            <View
-                android:layout_width="70dp"
-                android:layout_height="1dp"
-                android:background="#B0B0B0"
-                android:layout_marginBottom="12dp" />
-
-            <TextView
-                android:id="@+id/descTextOreo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Torta humeda de chocolate elaborada con cacao belga, rellena de cheesecake de oreo y ganache de chocolate con pedacitos de oreo. Decorada de frosting clasico de oreo elaborado con queso philadelphia y drip de chocolate"
-                android:textColor="#748A74"
-                android:textSize="14sp"
-                android:lineSpacingExtra="4dp"
-                android:fontFamily="sans-serif"
-                android:paddingBottom="16dp" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#748A74"
-                android:padding="12dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:minWidth="200dp"
-                android:clipToOutline="true"
-                android:backgroundTint="#748A74"
-                android:shape="rectangle"
-                app:cornerRadius="8dp"
-                android:radius="12dp">
-
-                <TextView
-                    android:id="@+id/textPriceOreo1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="15 P / 270 bs"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    android:textSize="10sp"
-                    android:paddingEnd="16dp"
-                    android:fontFamily="sans-serif-medium" />
-
-                <TextView
-                    android:id="@+id/textPriceOreo2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="25 P / 440 bs"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    android:textSize="10sp"
-                    android:fontFamily="sans-serif-medium" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- Eight Item Image -->
-        <ImageView
-            android:id="@+id/imageOreo"
-            android:layout_width="0dp"
-            android:layout_height="300dp"
-            android:layout_columnWeight="1"
-            android:layout_row="8"
-            android:layout_column="1"
-            android:scaleType="centerCrop"
-            android:src="@drawable/tortaoreo"
-            android:contentDescription="Carrot cake decorated with frosting and nuts on white plate" />
-
-        <!-- Nineth Item Image -->
-        <ImageView
-            android:id="@+id/imageBanoffee"
-            android:layout_width="0dp"
-            android:layout_height="300dp"
-            android:layout_columnWeight="1"
-            android:layout_row="9"
-            android:layout_column="0"
-            android:scaleType="centerCrop"
-            android:src="@drawable/tortabanoffee"
-            android:contentDescription="Chocolate cake with rich dark chocolate frosting on white plate" />
-
-        <!-- Seventh Item Description -->
-        <LinearLayout
-            android:id="@+id/descBanoffee"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:orientation="vertical"
-            android:layout_row="9"
-            android:layout_column="1"
-            android:paddingStart="16dp"
-            android:paddingEnd="8dp">
-
-            <TextView
-                android:id="@+id/titleBanoffee"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="BANOFFEE PIE"
-                android:textColor="#748A74"
-                android:textStyle="bold"
-                android:textAllCaps="true"
-                android:textSize="20sp"
-                android:letterSpacing="0.1"
-                android:fontFamily="sans-serif-medium"
-                android:paddingBottom="4dp" />
-
-            <View
-                android:layout_width="64dp"
-                android:layout_height="1dp"
-                android:background="#B0B0B0"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:id="@+id/descTextBanoffee"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Pie con base de galletas relleno de manjar, bananas y crema batida fresca. Decorado con manjar en frutos secos."
-                android:textColor="#748A74"
-                android:textSize="14sp"
-                android:lineSpacingExtra="4dp"
-                android:fontFamily="sans-serif"
-                android:paddingBottom="16dp" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#748A74"
-                android:padding="12dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:minWidth="200dp"
-                android:layout_marginBottom="4dp"
-                android:layout_marginStart="0dp"
-                android:layout_marginEnd="0dp"
-                android:layout_gravity="start"
-                android:clipToOutline="true"
-                android:backgroundTint="#748A74"
-                android:shape="rectangle"
-                android:radius="12dp">
-
-                <TextView
-                    android:id="@+id/textPriceBanoffee1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="20 P / 190 bs"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    android:textSize="10sp"
-                    android:paddingEnd="16dp"
-                    android:fontFamily="sans-serif-medium" />
-
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- Tenth Item Description -->
-        <LinearLayout
-            android:id="@+id/descChocolatePie"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:orientation="vertical"
-            android:layout_row="10"
-            android:layout_column="0"
-            android:paddingEnd="16dp"
-            android:paddingStart="8dp"
-            android:layout_marginTop="16dp">
-
-            <TextView
-                android:id="@+id/titleChocolatePie"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="CHOCOLATE PIE"
-                android:textColor="#748A74"
-                android:textStyle="bold"
-                android:textAllCaps="true"
-                android:textSize="20sp"
-                android:letterSpacing="0.1"
-                android:fontFamily="sans-serif-medium"
-                android:paddingBottom="4dp" />
-
-            <View
-                android:layout_width="70dp"
-                android:layout_height="1dp"
-                android:background="#B0B0B0"
-                android:layout_marginBottom="12dp" />
-
-            <TextView
-                android:id="@+id/descTextChocPie"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Pie de base de galletas oreo relleno de manjar, mucho ganache de chocolate y crema batida fresca"
-                android:textColor="#748A74"
-                android:textSize="14sp"
-                android:lineSpacingExtra="4dp"
-                android:fontFamily="sans-serif"
-                android:paddingBottom="16dp" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#748A74"
-                android:padding="12dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:minWidth="200dp"
-                android:clipToOutline="true"
-                android:backgroundTint="#748A74"
-                android:shape="rectangle"
-                app:cornerRadius="8dp"
-                android:radius="12dp">
-
-                <TextView
-                    android:id="@+id/textPriceChocPie1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="20 P / 320 bs"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    android:textSize="10sp"
-                    android:paddingEnd="16dp"
-                    android:fontFamily="sans-serif-medium" />
-
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- Tenth Item Image -->
-        <ImageView
-            android:id="@+id/imageChocPie"
-            android:layout_width="0dp"
-            android:layout_height="300dp"
-            android:layout_columnWeight="1"
-            android:layout_row="10"
-            android:layout_column="1"
-            android:scaleType="centerCrop"
-            android:src="@drawable/chocolatepie"
-            android:contentDescription="Carrot cake decorated with frosting and nuts on white plate" />
-
-    </GridLayout>
-
-</ScrollView>
+    </ScrollView>
+</LinearLayout>

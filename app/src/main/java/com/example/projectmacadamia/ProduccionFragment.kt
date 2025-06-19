@@ -49,8 +49,8 @@ class ProduccionFragment : Fragment() {
             Productos("Galleta Brookie", 18, R.drawable.brookie, cantidad = 1, activo = true),
             Productos("Galleta Zanahoria", 18, R.drawable.zana, cantidad = 1, activo = true),
             Productos("Galleta Dulce de leche", 18, R.drawable.ddl, cantidad = 1, activo = true),
-            Productos("Galleta Nutella", 18, R.drawable.nutella, cantidad = 1, activo = true),
-            Productos("Galleta Ferrero", 18, R.drawable.ferrero, cantidad = 1, activo = true)
+            Productos("Galleta Nutella", 20, R.drawable.nutella, cantidad = 1, activo = true),
+            Productos("Galleta Ferrero", 20, R.drawable.ferrero, cantidad = 1, activo = true)
         )
 
         val adapter = ProduccionAdapter(productos) { producto, activo ->

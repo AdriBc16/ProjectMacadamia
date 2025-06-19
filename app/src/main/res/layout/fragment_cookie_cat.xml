@@ -218,7 +218,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="252dp"
                     android:layout_marginTop="238dp"
-                    android:text="@string/price18" />
+                    android:text="@string/price20" />
 
                 <Button
                     android:id="@+id/galletaFerrero"
@@ -227,7 +227,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="36dp"
                     android:layout_marginTop="538dp"
-                    android:text="@string/price18" />
+                    android:text="@string/price20" />
 
             </FrameLayout>
         </LinearLayout>

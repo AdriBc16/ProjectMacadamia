@@ -1,16 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:padding="8dp"
     android:orientation="horizontal"
-    android:padding="12dp">
+    android:gravity="center_vertical"
+    android:background="#33FFFFFF">
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imgProducto"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:src="@drawable/chocochip"
         android:scaleType="centerCrop"
-        android:layout_marginEnd="12dp" />
+        android:layout_marginEnd="12dp"
+        android:src="@drawable/muffin"
+        android:contentDescription="@string/product_image"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.App.Rounded" />
 
     <LinearLayout
         android:layout_width="0dp"
@@ -19,23 +25,29 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/txtNombre"
+            android:id="@+id/nombreProducto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/chocochips"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#2e4c2f"
+            android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/txtPrecio"
+            android:id="@+id/precioProducto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tradis"
+            android:text="@string/price16"
+            android:textColor="#666666"
             android:textSize="14sp" />
     </LinearLayout>
 
-    <Switch
+    <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/switchActivo"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:thumbTint="@color/dark_green"
+        android:trackTint="@color/light_green"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="4dp" />
 </LinearLayout>

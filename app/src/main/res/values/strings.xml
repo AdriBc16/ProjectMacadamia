@@ -72,6 +72,11 @@
     <string name="cookieDough">Cheesecake Cookie Dough</string>
     <string name="nutellaCheese">Cheesecake Nutella</string>
 
+    <string name="shopping">Shooping Cart</string>
+    <string name="confirm">Confirm Order                 0bs</string>
+    <string name="productos">Products</string>
+    <string name="disponible">Available Cookies</string>
+
 
     <string name="chocolate"> Torta Chocolate Trufado </string>
     <string name="caramelCarrot">Torta Caramel Carrot</string>
@@ -85,9 +90,12 @@
     <string name="anticipacion">PEDIDOS DE CATÁLOGO SON</string>
     <string name="anticipacion2">CON 48H DE ANTICIPACIÓN</string>
 
-
-
-
+    <string name="product_image">Imagen del producto</string>
+    <string name="delete">Eliminar producto</string>
+    <string name="precio_total">%1$d bs</string>
+    <string name="confirmar_con_precio">Confirm Order    %1$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

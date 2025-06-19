@@ -18,10 +18,52 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
+        android:id="@+id/storeFragment"
+        android:name="com.example.projectmacadamia.TiendaFragment"
+        android:label="Store"
+        tools:layout="@layout/fragment_tienda" />
+
+    <fragment
         android:id="@+id/cartFragment"
         android:name="com.example.projectmacadamia.CartFragment"
         android:label="ShoppigCart"
         tools:layout="@layout/fragment_cart" />
+
+    <fragment
+        android:id="@+id/cheesecakeFragment"
+        android:name="com.example.projectmacadamia.cheesecakeCat"
+        android:label="Cheesecakes"
+        tools:layout="@layout/fragment_cheesecake_cat" />
+
+    <fragment
+        android:id="@+id/cookieFragment"
+        android:name="com.example.projectmacadamia.CookieCatFragment"
+        android:label="Cookies"
+        tools:layout="@layout/fragment_cookie_cat" />
+
+
+    <fragment
+        android:id="@+id/tortasFragment"
+        android:name="com.example.projectmacadamia.TortasCatFragment"
+        android:label="Tortas"
+        tools:layout="@layout/fragment_tortas_cat" />
+
+    <fragment
+        android:id="@+id/ProductosProduccionFragment"
+        android:name="com.example.projectmacadamia.ActivarProductos"
+        android:label=""
+        tools:layout="@layout/fragment_activar_productos" />
+
+    <fragment
+        android:id="@+id/produccionFragment"
+        android:name="com.example.projectmacadamia.ProduccionFragment"
+        android:label="ShoppigCart"
+        tools:layout="@layout/fragment_produccion" />
+
+
+
+
+
 
 
 </navigation>

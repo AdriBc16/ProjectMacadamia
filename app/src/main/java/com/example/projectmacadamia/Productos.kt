@@ -1,8 +1,11 @@
 package com.example.projectmacadamia
 
-data class Producto(
+data class Productos(
     val nombre: String,
     val precio: Int,
     val imagenResId: Int,
-    var cantidad: Int = 1
+    var cantidad: Int = 1,
+    var activo: Boolean = true
 )
+
+

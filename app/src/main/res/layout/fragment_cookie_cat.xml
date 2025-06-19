@@ -3,20 +3,29 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".CookieCatFragment">
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+
             <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="600dp">
+
                 <ImageView
                     android:id="@+id/galletasPortada"
                     android:layout_width="match_parent"
@@ -27,16 +36,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/anticipacion"
                     android:layout_marginTop="120dp"
-                    android:textColor="@color/dark_green"/>
+                    android:text="@string/anticipacion"
+                    android:textColor="@color/dark_green" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/anticipacion2"
                     android:layout_marginTop="140dp"
-                    android:textColor="@color/dark_green"/>
+                    android:text="@string/anticipacion2"
+                    android:textColor="@color/dark_green" />
             </FrameLayout>
 
 

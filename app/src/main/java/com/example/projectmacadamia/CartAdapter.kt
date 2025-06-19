@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectmacadamia.R
-import com.example.projectmacadamia.Producto
+import com.example.projectmacadamia.Productos
 
 class CartAdapter(
-    private val productos: MutableList<Producto>,
+    private val productos: MutableList<Productos>,
     private val onTotalChanged: (Int) -> Unit
 ) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
 

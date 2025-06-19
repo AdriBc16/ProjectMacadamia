@@ -9,34 +9,21 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-class ProduccionFragment : Fragment() {
-
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+class ActivarProductos : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Cargamos el layout del fragmento
-        return inflater.inflate(R.layout.fragment_produccion, container, false)
+        // Inflamos el nuevo layout que contiene solo el RecyclerView
+        return inflater.inflate(R.layout.fragment_activar_productos, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val recyclerProductos = view.findViewById<RecyclerView>(R.id.recyclerActivarProductos)
+        // Referencia al RecyclerView
+        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerActivarProductos)
 
         val productos = mutableListOf(
             Productos("Galleta Chocochips", 16, R.drawable.chocochip, cantidad = 1, activo = true),
@@ -53,24 +40,17 @@ class ProduccionFragment : Fragment() {
             Productos("Galleta Ferrero", 18, R.drawable.ferrero, cantidad = 1, activo = true)
         )
 
+        // Adaptador de productos
         val adapter = ProduccionAdapter(productos) { producto, activo ->
             producto.activo = activo
-            Toast.makeText(requireContext(), "${producto.nombre} ${if (activo) "habilitado" else "deshabilitado"}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                requireContext(),
+                "${producto.nombre} ${if (activo) "activado" else "desactivado"}",
+                Toast.LENGTH_SHORT
+            ).show()
         }
 
-
-        recyclerProductos.layoutManager = LinearLayoutManager(requireContext())
-        recyclerProductos.adapter = adapter
-    }
-
-    companion object {
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ProduccionFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.adapter = adapter
     }
 }

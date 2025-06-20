@@ -8,8 +8,6 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.projectmacadamia.CartAdapter
-import com.example.projectmacadamia.Productos
 
 class CartFragment : Fragment() {
 
@@ -30,10 +28,7 @@ class CartFragment : Fragment() {
         recyclerCart = view.findViewById(R.id.recyclerCart)
         btnConfirmCart = view.findViewById(R.id.btnConfirmCart)
 
-        val productos = mutableListOf(
-            Productos("Muffin de Vainilla", 18, R.drawable.muffin),
-            Productos("Galleta Ferrero", 20, R.drawable.galleta)
-        )
+        val productos = Carrito.obtenerProductos()
 
         adapter = CartAdapter(productos) { total ->
             val totalTexto = getString(R.string.precio_total, total)

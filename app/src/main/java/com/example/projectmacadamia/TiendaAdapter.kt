@@ -1,9 +1,11 @@
 package com.example.projectmacadamia
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
 class TiendaAdapter(
@@ -27,8 +29,17 @@ class TiendaAdapter(
         val producto = productos[position]
         holder.imgProducto.setImageResource(producto.imagenResId)
         holder.txtNombre.text = producto.nombre
-        holder.txtDescripcion.text = "Producto artesanal y delicioso" // Puedes personalizar esto
+        holder.txtDescripcion.text = "Producto artesanal y delicioso"
         holder.txtPrecio.text = "${producto.precio} Bs"
+
+        holder.itemView.setOnClickListener {
+            Carrito.agregar(producto)
+            Toast.makeText(
+                holder.itemView.context,
+                "${producto.nombre} añadido al carrito",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
     }
 
     override fun getItemCount(): Int = productos.size

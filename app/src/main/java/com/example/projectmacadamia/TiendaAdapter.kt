@@ -9,8 +9,13 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
 class TiendaAdapter(
-    private val productos: List<Productos>
+    private var productos: List<Productos>
 ) : RecyclerView.Adapter<TiendaAdapter.TiendaViewHolder>() {
+
+    fun actualizarLista(nuevaLista: List<Productos>) {
+        this.productos = nuevaLista
+        notifyDataSetChanged() // Notifica al RecyclerView que los datos cambiaron
+    }
 
     inner class TiendaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imgProducto: ImageView = itemView.findViewById(R.id.imgProducto)

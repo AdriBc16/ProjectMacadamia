@@ -38,28 +38,16 @@ class ProduccionFragment : Fragment() {
 
         val recyclerProductos = view.findViewById<RecyclerView>(R.id.recyclerActivarProductos)
 
-        val productos = mutableListOf(
-            Productos("Galleta Chocochips", 16, R.drawable.chocochip, cantidad = 1, activo = true),
-            Productos("Galleta Duo", 16, R.drawable.duo, cantidad = 1, activo = false),
-            Productos("Galleta Red Velvet", 16, R.drawable.rv, cantidad = 1, activo = true),
-            Productos("Galleta Cookies and Cream ", 16, R.drawable.oreo, cantidad = 1, activo = true),
-            Productos("Galleta Cinaroll", 16, R.drawable.cinaroll, cantidad = 1, activo = true),
-            Productos("Galleta Fruity Pebbles", 16, R.drawable.frutyy, cantidad = 1, activo = true),
-            Productos("Galleta Lemon Pie", 18, R.drawable.lemon, cantidad = 1, activo = true),
-            Productos("Galleta Brookie", 18, R.drawable.brookie, cantidad = 1, activo = true),
-            Productos("Galleta Zanahoria", 18, R.drawable.zana, cantidad = 1, activo = true),
-            Productos("Galleta Dulce de leche", 18, R.drawable.ddl, cantidad = 1, activo = true),
-            Productos("Galleta Nutella", 20, R.drawable.nutella, cantidad = 1, activo = true),
-            Productos("Galleta Ferrero", 20, R.drawable.ferrero, cantidad = 1, activo = true)
-        )
-
-        val adapter = ProduccionAdapter(productos) { producto, activo ->
+        // Obtiene los productos del Singleton
+        val listaProductos = ProductosManager.productos.value ?: emptyList()
+        val adapter = ProduccionAdapter(listaProductos) { producto, activo ->
             producto.activo = activo
-            Toast.makeText(requireContext(), "${producto.nombre} ${if (activo) "habilitado" else "deshabilitado"}", Toast.LENGTH_SHORT).show()
+            ProductosManager.actualizarProducto(producto)  // ✅ Actualiza el Singleton
+            Toast.makeText(context, "${producto.nombre} ${if (activo) "activado" else "desactivado"}", Toast.LENGTH_SHORT).show()
         }
-
 
         recyclerProductos.layoutManager = LinearLayoutManager(requireContext())
         recyclerProductos.adapter = adapter
+
     }
 }

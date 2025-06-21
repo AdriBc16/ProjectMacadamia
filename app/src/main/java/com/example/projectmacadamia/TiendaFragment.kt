@@ -14,6 +14,7 @@ private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 class TiendaFragment : Fragment() {
+    private lateinit var adapter: TiendaAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_tienda, container, false)
@@ -24,23 +25,17 @@ class TiendaFragment : Fragment() {
 
         val recycler = view.findViewById<RecyclerView>(R.id.recyclerTienda)
 
-        val productos = mutableListOf(
-            Productos("Galleta Chocochips", 16, R.drawable.chocochip, cantidad = 1, activo = true),
-            Productos("Galleta Duo", 16, R.drawable.duo, cantidad = 1, activo = false),
-            Productos("Galleta Red Velvet", 16, R.drawable.rv, cantidad = 1, activo = true),
-            Productos("Galleta Cookies and Cream ", 16, R.drawable.oreo, cantidad = 1, activo = true),
-            Productos("Galleta Cinaroll", 16, R.drawable.cinaroll, cantidad = 1, activo = true),
-            Productos("Galleta Fruity Pebbles", 16, R.drawable.frutyy, cantidad = 1, activo = true),
-            Productos("Galleta Lemon Pie", 18, R.drawable.lemon, cantidad = 1, activo = true),
-            Productos("Galleta Brookie", 18, R.drawable.brookie, cantidad = 1, activo = true),
-            Productos("Galleta Zanahoria", 18, R.drawable.zana, cantidad = 1, activo = true),
-            Productos("Galleta Dulce de leche", 18, R.drawable.ddl, cantidad = 1, activo = true),
-            Productos("Galleta Nutella", 18, R.drawable.nutella, cantidad = 1, activo = true),
-            Productos("Galleta Ferrero", 18, R.drawable.ferrero, cantidad = 1, activo = true)
-        )
-
+        // Inicializa el adaptador con una lista vacía (se actualizará con el LiveData)
+        adapter = TiendaAdapter(emptyList())
         recycler.layoutManager = LinearLayoutManager(requireContext())
-        recycler.adapter = TiendaAdapter(productos)
+        recycler.adapter = adapter
+
+        // Observa cambios en la lista de productos del Singleton
+        ProductosManager.productos.observe(viewLifecycleOwner) { listaProductos ->
+            // Filtra solo los productos activos
+            val productosActivos = listaProductos.filter { it.activo }
+            adapter.actualizarLista(productosActivos)
+        }
 
     }
 }

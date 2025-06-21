@@ -1,4 +1,10 @@
 <resources>
+    <string-array name="categorias">
+        <item>Seleccione una categoría</item>
+        <item>Cliente</item>
+        <item>Produccion</item>
+    </string-array>
+    
     <string name="app_name">Macadamia Application</string>
     <string name="mainPantalla">Main Screen</string>
     <string name="btn_order">Order Now</string>
@@ -26,7 +32,7 @@
     <string name="cookie">Galletas</string>
     <string name="cake">Tortas</string>
     <string name="chessecake">Chessecakes</string>
-    <string name="produccion">produccion</string>
+    <string name="produccion">PRODUCCION</string>
     <string name="producci_n">Producción</string>
     <string name="estad_sticas">Estadísticas</string>
     <string name="states">Estados</string>

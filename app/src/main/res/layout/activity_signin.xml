@@ -69,47 +69,90 @@
             android:id="@+id/user"
             style="@style/MyEditTextStyle"
             android:layout_marginTop="30dp"
+            android:inputType="text"
             android:hint="@string/user" />
 
         <EditText
             android:id="@+id/phone_number"
             style="@style/MyEditTextStyle"
             android:layout_marginTop="12dp"
+            android:maxLength="8"
+            android:digits="0123456789"
+            android:inputType="number|phone"
             android:hint="@string/phone_number" />
 
         <EditText
             android:id="@+id/email"
             style="@style/MyEditTextStyle"
+            android:inputType="textEmailAddress"
             android:layout_marginTop="12dp"
             android:hint="@string/email" />
 
         <EditText
             android:id="@+id/password"
             style="@style/MyEditTextStyle"
+            app:helperText="Mínimo 8 caracteres con 1 mayúscula y 1 carácter especial"
+            android:inputType="textPassword"
             android:layout_marginTop="12dp"
             android:hint="@string/password" />
 
         <EditText
             android:id="@+id/adress"
             style="@style/MyEditTextStyle"
+            android:inputType="text"
             android:layout_marginTop="12dp"
             android:hint="@string/adress" />
 
-        <EditText
-            android:id="@+id/categories"
+        <Spinner
+            android:id="@+id/spinner"
             style="@style/MyEditTextStyle"
-            android:layout_marginTop="12dp"
-            android:hint="@string/categories" />
+            android:layout_marginTop="10dp"
+            android:entries="@array/categorias"
+            android:overlapAnchor="false"/>
+
+<!--        <EditText-->
+<!--            android:id="@+id/categories"-->
+<!--            style="@style/MyEditTextStyle"-->
+<!--            android:layout_marginTop="12dp"-->
+<!--            android:hint="@string/categories" />-->
 
         <Button
             android:id="@+id/button_SignIn"
             android:layout_width="222dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="25dp"
             android:backgroundTint="@color/medium_green"
             android:text="@string/signin"
             android:textSize="18sp"
             app:cornerRadius="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="top|center">
+
+            <TextView
+                android:id="@+id/donthaveaccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily=""
+                android:text="Already have an account?"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/button_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login"
+                android:textColor="@android:color/background_dark"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:padding="12dp"
+                android:gravity="center"/>
+        </LinearLayout>
 
 
     </LinearLayout>

@@ -5,9 +5,9 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
-import android.text.InputFilter
 import android.text.InputType
 import android.text.TextWatcher
+import android.util.Log
 import android.util.Patterns
 import android.view.View
 import android.widget.AdapterView
@@ -17,13 +17,14 @@ import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.projectmacadamia.MainActivity
-import com.example.projectmacadamia.activiy_login
+import com.example.projectmacadamia.api.RetrofitClient
+import com.example.projectmacadamia.modelo.RegisterResponse
+import com.example.projectmacadamia.modelo.UserRequest
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class activity_signin : AppCompatActivity() {
     private lateinit var spinner: Spinner
@@ -31,15 +32,15 @@ class activity_signin : AppCompatActivity() {
 
     private lateinit var userField: EditText
     private lateinit var nameField: EditText
-    private lateinit var lastnameField: EditText
+    private lateinit var lastnamesField: EditText
     private lateinit var phoneField: EditText
     private lateinit var emailField: EditText
     private lateinit var passwordField: EditText
-    private lateinit var adressField: EditText
+    private lateinit var addressField: EditText
     private lateinit var signInButton: Button
     private lateinit var logInButton: TextView
 
-    private var direccionIp: String = "http://192.168.100.255/laravel"
+//    private var direccionIp: String = "http://192.168.100.138:8000"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,11 +51,11 @@ class activity_signin : AppCompatActivity() {
         // Inicialización de vistas
         userField = findViewById(R.id.user)
         nameField = findViewById(R.id.nombre)
-        lastnameField = findViewById(R.id.apellido)
+        lastnamesField = findViewById(R.id.apellido)
         phoneField = findViewById(R.id.phone_number)
         emailField = findViewById(R.id.email)
         passwordField = findViewById(R.id.password)
-        adressField = findViewById(R.id.adress)
+        addressField = findViewById(R.id.address)
         signInButton = findViewById(R.id.button_SignIn)
         logInButton = findViewById(R.id.button_login)
 
@@ -71,12 +72,54 @@ class activity_signin : AppCompatActivity() {
         setupFieldValidations()
 
         signInButton.setOnClickListener {
-            if (validateAllFields()) {
-                Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, PadreActivity::class.java)
-                startActivity(intent)
+            if (!validateAllFields()) {
+                Toast.makeText(this, "Complete todos los campos correctamente", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
+
+            val userRequest = UserRequest(
+                username = userField.text.toString(),
+                name = nameField.text.toString(),
+                lastnames = lastnamesField.text.toString(),
+                email = emailField.text.toString(),
+                password = passwordField.text.toString(),
+                phone = phoneField.text.toString(),
+                address = addressField.text.toString(),
+                category = spinner.selectedItem.toString()
+            )
+
+            RetrofitClient.api.registerUser(userRequest).enqueue(object : Callback<RegisterResponse> {
+
+                override fun onResponse(call: Call<RegisterResponse>, response: Response<RegisterResponse>) {
+                    try {
+                        if (response.isSuccessful && response.body() != null) {
+                            Toast.makeText(this@activity_signin, "Usuario registrado correctamente", Toast.LENGTH_SHORT).show()
+                            startActivity(Intent(this@activity_signin, PadreActivity::class.java))
+                            finish()
+                        } else {
+                            val errorText = response.errorBody()?.string() ?: "Error desconocido"
+                            Log.e("RegistroError", "Código: ${response.code()}, Error: $errorText")
+                            Toast.makeText(this@activity_signin, "Error al registrar: $errorText", Toast.LENGTH_LONG).show()
+                        }
+                    } catch (e: Exception) {
+                        Log.e("RegistroCatch", "Excepción al procesar respuesta: ${e.message}")
+                        Toast.makeText(this@activity_signin, "Error inesperado: ${e.message}", Toast.LENGTH_LONG).show()
+
+                    }
+                }
+
+                override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
+                    Log.e("RegistroFallo", "Fallo de red: ${t.message}")
+                    Toast.makeText(
+                        this@activity_signin,
+                        "Fallo de conexión: ${t.message}",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+
+            })
         }
+
     }
 
     private fun setupFieldValidations() {
@@ -98,10 +141,10 @@ class activity_signin : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })
 
-        lastnameField.addTextChangedListener(object : TextWatcher {
+        lastnamesField.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 validateUsername()
-                lastnameField.nextFocusDownId = if (validateLastName()) R.id.phone_number else View.NO_ID
+                lastnamesField.nextFocusDownId = if (validateLastName()) R.id.phone_number else View.NO_ID
             }
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
@@ -131,13 +174,13 @@ class activity_signin : AppCompatActivity() {
         passwordField.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 validatePassword()
-                passwordField.nextFocusDownId = if (validatePassword()) R.id.adress else View.NO_ID
+                passwordField.nextFocusDownId = if (validatePassword()) R.id.address else View.NO_ID
             }
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })
         // Validación para adress
-        adressField.addTextChangedListener(object : TextWatcher {
+        addressField.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 validateAdress()
             }
@@ -145,7 +188,6 @@ class activity_signin : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })
     }
-
     private fun validateUsername(): Boolean {
         val username = userField.text.toString().trim()
         if (username.isEmpty()) {
@@ -169,30 +211,19 @@ class activity_signin : AppCompatActivity() {
             nameField.backgroundTintList = ColorStateList.valueOf(Color.RED)
             return false
         }
-        /*if (existingUsers.contains(username)) {
-            userField.error = "Usuario ya existe"
-            userField.backgroundTintList = ColorStateList.valueOf(Color.RED)
-            return false
-        }*/
         nameField.error = null
         return true
     }
     private fun validateLastName(): Boolean {
-        val lastName = lastnameField.text.toString().trim()
+        val lastName = lastnamesField.text.toString().trim()
         if (lastName.isEmpty()) {
-            lastnameField.error = "Apellido requerido"
-            lastnameField.backgroundTintList = ColorStateList.valueOf(Color.RED)
+            lastnamesField.error = "Apellido requerido"
+            lastnamesField.backgroundTintList = ColorStateList.valueOf(Color.RED)
             return false
         }
-        /*if (existingUsers.contains(username)) {
-            userField.error = "Usuario ya existe"
-            userField.backgroundTintList = ColorStateList.valueOf(Color.RED)
-            return false
-        }*/
-        lastnameField.error = null
+        lastnamesField.error = null
         return true
     }
-
     private fun validatePhone(): Boolean {
         val phone = phoneField.text.toString().trim()
 
@@ -219,7 +250,6 @@ class activity_signin : AppCompatActivity() {
             }
         }
     }
-
     private fun validateEmail(): Boolean {
         val email = emailField.text.toString().trim()
         if (email.isEmpty()) {
@@ -236,24 +266,6 @@ class activity_signin : AppCompatActivity() {
         emailField.backgroundTintList = ColorStateList.valueOf(Color.GREEN)
         return true
     }
-
-//    private fun validatePassword(): Boolean {
-//        val password = passwordField.text.toString().trim()
-//        if (password.isEmpty()) {
-//            passwordField.error = "Contraseña requerida"
-//            passwordField.backgroundTintList = ColorStateList.valueOf(Color.RED)
-//            return false
-//        }
-//        if (password.length < 8) {
-//            passwordField.error = "Mínimo 8 caracteres"
-//            passwordField.backgroundTintList = ColorStateList.valueOf(Color.RED)
-//            return false
-//        }
-//        passwordField.error = null
-//        passwordField.backgroundTintList = ColorStateList.valueOf(Color.GREEN)
-//        return true
-//    }
-
     private fun validatePassword(): Boolean {
         val password = passwordField.text.toString().trim()
         val passwordPattern = "^(?=.*[A-Z])(?=.*[!@#\$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]).{8,}\$"
@@ -273,22 +285,19 @@ class activity_signin : AppCompatActivity() {
             }
         }
     }
-
     private fun showPasswordError(message: String) {
         passwordField.error = message
         passwordField.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.red))
     }
-
     private fun showPasswordValid() {
         passwordField.error = null
         passwordField.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.success_green))
     }
-
     private fun validateAdress(): Boolean {
-        val adress = adressField.text.toString().trim()
-        if (adress.isEmpty()) {
-            adressField.error = "Direccion requerida"
-            adressField.backgroundTintList = ColorStateList.valueOf(Color.RED)
+        val address = addressField.text.toString().trim()
+        if (address.isEmpty()) {
+            addressField.error = "Direccion requerida"
+            addressField.backgroundTintList = ColorStateList.valueOf(Color.RED)
             return false
         }
         return true
@@ -323,23 +332,12 @@ class activity_signin : AppCompatActivity() {
         }
     }
     private fun validateSpinner(): Boolean {
-        return if (spinner.selectedItemPosition == 0) {  // Si está seleccionado el prompt
-            // Mostrar error
-            (spinner.selectedView as? TextView)?.apply {
-                error = "Debe seleccionar una categoría"
-                setTextColor(ContextCompat.getColor(this@activity_signin, R.color.black))
-            }
-            false
-        } else {
-            // Validación correcta
-            (spinner.selectedView as? TextView)?.apply {
-                error = null
-                setTextColor(ContextCompat.getColor(this@activity_signin, R.color.black))
-            }
-            true
+        if (spinner.selectedItemPosition == 0) {
+            (spinner.selectedView as? TextView)?.error = " "
+            return false
         }
+        return true
     }
-
     private fun validateAllFields(): Boolean {
         val usernameValid = validateUsername()
         val nameValid = validateName()

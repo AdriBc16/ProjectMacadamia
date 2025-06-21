@@ -155,7 +155,7 @@
 
 
                 <EditText
-                    android:id="@+id/adress"
+                    android:id="@+id/address"
                     style="@style/MyEditTextStyle"
                     android:layout_marginTop="12dp"
                     android:hint="@string/adress"

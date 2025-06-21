@@ -30,12 +30,16 @@ class activity_signin : AppCompatActivity() {
     private var isSpinnerSelected = false
 
     private lateinit var userField: EditText
+    private lateinit var nameField: EditText
+    private lateinit var lastnameField: EditText
     private lateinit var phoneField: EditText
     private lateinit var emailField: EditText
     private lateinit var passwordField: EditText
     private lateinit var adressField: EditText
     private lateinit var signInButton: Button
     private lateinit var logInButton: TextView
+
+    private var direccionIp: String = "http://192.168.100.255/laravel"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,6 +49,8 @@ class activity_signin : AppCompatActivity() {
 
         // Inicialización de vistas
         userField = findViewById(R.id.user)
+        nameField = findViewById(R.id.nombre)
+        lastnameField = findViewById(R.id.apellido)
         phoneField = findViewById(R.id.phone_number)
         emailField = findViewById(R.id.email)
         passwordField = findViewById(R.id.password)
@@ -78,7 +84,24 @@ class activity_signin : AppCompatActivity() {
         userField.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 validateUsername()
-                userField.nextFocusDownId = if (validateUsername()) R.id.phone_number else View.NO_ID
+                userField.nextFocusDownId = if (validateUsername()) R.id.nombre else View.NO_ID
+            }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+        })
+        nameField.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                validateUsername()
+                nameField.nextFocusDownId = if (validateName()) R.id.apellido else View.NO_ID
+            }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+        })
+
+        lastnameField.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                validateUsername()
+                lastnameField.nextFocusDownId = if (validateLastName()) R.id.phone_number else View.NO_ID
             }
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
@@ -108,6 +131,7 @@ class activity_signin : AppCompatActivity() {
         passwordField.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 validatePassword()
+                passwordField.nextFocusDownId = if (validatePassword()) R.id.adress else View.NO_ID
             }
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
@@ -136,6 +160,36 @@ class activity_signin : AppCompatActivity() {
         }*/
         userField.error = null
         userField.backgroundTintList = ColorStateList.valueOf(Color.GREEN)
+        return true
+    }
+    private fun validateName(): Boolean {
+        val name = nameField.text.toString().trim()
+        if (name.isEmpty()) {
+            nameField.error = "Nombre requerido"
+            nameField.backgroundTintList = ColorStateList.valueOf(Color.RED)
+            return false
+        }
+        /*if (existingUsers.contains(username)) {
+            userField.error = "Usuario ya existe"
+            userField.backgroundTintList = ColorStateList.valueOf(Color.RED)
+            return false
+        }*/
+        nameField.error = null
+        return true
+    }
+    private fun validateLastName(): Boolean {
+        val lastName = lastnameField.text.toString().trim()
+        if (lastName.isEmpty()) {
+            lastnameField.error = "Apellido requerido"
+            lastnameField.backgroundTintList = ColorStateList.valueOf(Color.RED)
+            return false
+        }
+        /*if (existingUsers.contains(username)) {
+            userField.error = "Usuario ya existe"
+            userField.backgroundTintList = ColorStateList.valueOf(Color.RED)
+            return false
+        }*/
+        lastnameField.error = null
         return true
     }
 
@@ -256,10 +310,10 @@ class activity_signin : AppCompatActivity() {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 if (position > 0) {  // Si no es la primera opción (el prompt)
                     isSpinnerSelected = true
-                    (view as? TextView)?.setTextColor(ContextCompat.getColor(this@activity_signin, R.color.white))
+                    (view as? TextView)?.setTextColor(ContextCompat.getColor(this@activity_signin, R.color.black))
                 } else {
                     isSpinnerSelected = false
-                    (view as? TextView)?.setTextColor(ContextCompat.getColor(this@activity_signin, R.color.white))
+                    (view as? TextView)?.setTextColor(ContextCompat.getColor(this@activity_signin, R.color.black))
                 }
             }
 
@@ -273,14 +327,14 @@ class activity_signin : AppCompatActivity() {
             // Mostrar error
             (spinner.selectedView as? TextView)?.apply {
                 error = "Debe seleccionar una categoría"
-                setTextColor(ContextCompat.getColor(this@activity_signin, R.color.white))
+                setTextColor(ContextCompat.getColor(this@activity_signin, R.color.black))
             }
             false
         } else {
             // Validación correcta
             (spinner.selectedView as? TextView)?.apply {
                 error = null
-                setTextColor(ContextCompat.getColor(this@activity_signin, R.color.white))
+                setTextColor(ContextCompat.getColor(this@activity_signin, R.color.black))
             }
             true
         }
@@ -288,11 +342,13 @@ class activity_signin : AppCompatActivity() {
 
     private fun validateAllFields(): Boolean {
         val usernameValid = validateUsername()
+        val nameValid = validateName()
+        val lastValid = validateLastName()
         val phoneValid = validatePhone()
         val emailValid = validateEmail()
         val passwordValid = validatePassword()
         val adressValid = validateAdress()
         val spinnerValid = validateSpinner()
-        return usernameValid && phoneValid && emailValid && passwordValid && adressValid && spinnerValid
+        return usernameValid && nameValid && lastValid && phoneValid && emailValid && passwordValid && adressValid && spinnerValid
     }
 }

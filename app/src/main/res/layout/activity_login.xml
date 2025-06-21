@@ -17,8 +17,8 @@
         app:srcCompat="@drawable/fondo_inicio" />
 
 
-    <View style="@style/GreenRoundedView" android:layout_marginTop="360dp" />
-    <View style="@style/GreenRoundedView" android:layout_marginTop="420dp" />
+    <View style="@style/GreenRoundedView2" android:layout_marginTop="360dp" />
+    <View style="@style/GreenRoundedView2" android:layout_marginTop="420dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -49,14 +49,14 @@
 
         <EditText
             android:id="@+id/user"
-            style="@style/MyEditTextStyle"
+            style="@style/MyEditTextStyle2"
             android:layout_marginTop="30dp"
             android:inputType="text"
             android:hint="@string/user"
             />
         <EditText
             android:id="@+id/password"
-            style="@style/MyEditTextStyle"
+            style="@style/MyEditTextStyle2"
             android:layout_marginTop="12dp"
             android:inputType="textPassword"
             android:hint="@string/password"

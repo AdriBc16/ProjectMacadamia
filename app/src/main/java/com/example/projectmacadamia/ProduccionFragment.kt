@@ -42,7 +42,7 @@ class ProduccionFragment : Fragment() {
         val listaProductos = ProductosManager.productos.value ?: emptyList()
         val adapter = ProduccionAdapter(listaProductos) { producto, activo ->
             producto.activo = activo
-            ProductosManager.actualizarProducto(producto)  // ✅ Actualiza el Singleton
+            ProductosManager.actualizarProducto(producto)  // Actualiza el Singleton
             Toast.makeText(context, "${producto.nombre} ${if (activo) "activado" else "desactivado"}", Toast.LENGTH_SHORT).show()
         }
 

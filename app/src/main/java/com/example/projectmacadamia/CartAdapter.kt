@@ -5,8 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
-import com.example.projectmacadamia.R
-import com.example.projectmacadamia.Productos
 
 class CartAdapter(
     private val productos: MutableList<Productos>,
@@ -31,18 +29,25 @@ class CartAdapter(
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
         val producto = productos[position]
 
-        holder.nombre.text = producto.nombre
+        holder.nombre.text = if (producto.descripcion.isNotBlank()) {
+            "${producto.nombre}\n${producto.descripcion}"
+        } else {
+            producto.nombre
+        }
+
         val total = producto.precio * producto.cantidad
         holder.precio.text = holder.itemView.context.getString(R.string.precio_total, total)
         holder.imagen.setImageResource(producto.imagenResId)
         holder.cantidad.text = producto.cantidad.toString()
 
+        // Botón para aumentar cantidad
         holder.btnAdd.setOnClickListener {
             producto.cantidad++
             notifyItemChanged(position)
             actualizarTotal()
         }
 
+        // Botón para disminuir cantidad o eliminar producto
         holder.btnSubtract.setOnClickListener {
             if (producto.cantidad > 1) {
                 producto.cantidad--

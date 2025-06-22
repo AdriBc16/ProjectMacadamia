@@ -1,8 +1,8 @@
 <resources>
     <string-array name="categorias">
         <item>Seleccione una categoría</item>
-        <item>Cliente</item>
-        <item>Produccion</item>
+        <item>cliente</item>
+        <item>produccion</item>
     </string-array>
 
     <string name="app_name">Macadamia Application</string>

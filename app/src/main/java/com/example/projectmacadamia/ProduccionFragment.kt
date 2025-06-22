@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -13,6 +15,8 @@ private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 class ProduccionFragment : Fragment() {
+
+    private lateinit var agregarButton: Button
 
     private var param1: String? = null
     private var param2: String? = null
@@ -36,18 +40,12 @@ class ProduccionFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val recyclerProductos = view.findViewById<RecyclerView>(R.id.recyclerActivarProductos)
+        // Inicialización de los botones por ID
+        agregarButton = view.findViewById(R.id.agregar)
 
-        // Obtiene los productos del Singleton
-        val listaProductos = ProductosManager.productos.value ?: emptyList()
-        val adapter = ProduccionAdapter(listaProductos) { producto, activo ->
-            producto.activo = activo
-            ProductosManager.actualizarProducto(producto)  // ✅ Actualiza el Singleton
-            Toast.makeText(context, "${producto.nombre} ${if (activo) "activado" else "desactivado"}", Toast.LENGTH_SHORT).show()
+        agregarButton.setOnClickListener{
+            findNavController().navigate(R.id.ProductosProduccionFragment)
         }
-
-        recyclerProductos.layoutManager = LinearLayoutManager(requireContext())
-        recyclerProductos.adapter = adapter
-
     }
+
 }

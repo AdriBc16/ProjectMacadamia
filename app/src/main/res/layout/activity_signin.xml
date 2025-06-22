@@ -140,10 +140,11 @@
 
                         <EditText
                             android:id="@+id/password"
-                            style="@style/MyEditTextStyle"
+                            style="@style/MyEditTextStyleP"
                             android:layout_marginTop="30dp"
                             android:hint="@string/password"
                             android:inputType="textPassword"
+                            android:drawableEnd="@drawable/eye"
                             app:helperText="Mínimo 8 caracteres con 1 mayúscula y 1 carácter especial" />
 
 

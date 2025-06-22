@@ -46,29 +46,10 @@
         android:label="Cookies"
         tools:layout="@layout/fragment_cookie_cat" />
 
-
     <fragment
         android:id="@+id/tortasFragment"
         android:name="com.example.projectmacadamia.TortasCatFragment"
         android:label="Tortas"
         tools:layout="@layout/fragment_tortas_cat" />
-
-    <fragment
-        android:id="@+id/ProductosProduccionFragment"
-        android:name="com.example.projectmacadamia.ActivarProductos"
-        android:label=""
-        tools:layout="@layout/fragment_activar_productos" />
-
-    <fragment
-        android:id="@+id/produccionFragment"
-        android:name="com.example.projectmacadamia.ProduccionFragment"
-        android:label="ShoppigCart"
-        tools:layout="@layout/fragment_produccion" />
-
-
-
-
-
-
 
 </navigation>

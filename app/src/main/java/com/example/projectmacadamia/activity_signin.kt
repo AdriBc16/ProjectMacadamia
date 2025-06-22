@@ -9,6 +9,7 @@ import android.text.InputType
 import android.text.TextWatcher
 import android.util.Log
 import android.util.Patterns
+import android.view.MotionEvent
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -22,6 +23,8 @@ import androidx.core.content.ContextCompat
 import com.example.projectmacadamia.api.RetrofitClient
 import com.example.projectmacadamia.modelo.RegisterResponse
 import com.example.projectmacadamia.modelo.UserRequest
+import com.example.projectmacadamia.modelo.UsernameCheckResponse
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -39,9 +42,6 @@ class activity_signin : AppCompatActivity() {
     private lateinit var addressField: EditText
     private lateinit var signInButton: Button
     private lateinit var logInButton: TextView
-
-//    private var direccionIp: String = "http://192.168.100.138:8000"
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -65,14 +65,20 @@ class activity_signin : AppCompatActivity() {
         }
         // Configuración de campos
         passwordField.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+
         spinner = findViewById<Spinner>(R.id.spinner)
         setupSpinner()
+        setupPasswordToggle(passwordField)
+
 
         // Agregar validación en tiempo real
         setupFieldValidations()
 
         signInButton.setOnClickListener {
-            if (!validateAllFields()) {
+            validateUsername { isValid ->
+                if (!isValid) return@validateUsername
+            }
+            if (!validateAllFields() || !validateSpinner()) {
                 Toast.makeText(this, "Complete todos los campos correctamente", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
@@ -104,17 +110,54 @@ class activity_signin : AppCompatActivity() {
                                 putString("email", user.email)
                                 putString("phone", user.phone)
                                 putString("address", user.address)
+                                putString("category", user.category)
                                 apply()
                             }
 
+                            val category = spinner.selectedItem.toString().trim().lowercase()
+
                             Toast.makeText(this@activity_signin, "Usuario registrado correctamente", Toast.LENGTH_SHORT).show()
-                            startActivity(Intent(this@activity_signin, PadreActivity::class.java))
+                            try {
+                                when (category) {
+                                    "produccion" -> startActivity(Intent(this@activity_signin, Padre2Activity::class.java))
+                                    "cliente" -> startActivity(Intent(this@activity_signin, PadreActivity::class.java))
+                                    else -> Toast.makeText(this@activity_signin, "Categoría no reconocida: $category", Toast.LENGTH_SHORT).show()
+                                }
+                            } catch (e: Exception) {
+                                Log.e("RedireccionError", "Error al cambiar de pantalla: ${e.message}")
+                                Toast.makeText(this@activity_signin, "Error al cambiar de pantalla: ${e.message}", Toast.LENGTH_LONG).show()
+                            }
                             finish()
 
                     } else {
-                            val errorText = response.errorBody()?.string() ?: "Error desconocido"
-                            Log.e("RegistroError", "Código: ${response.code()}, Error: $errorText")
-                            Toast.makeText(this@activity_signin, "Error al registrar: $errorText", Toast.LENGTH_LONG).show()
+                        val errorBody = response.errorBody()?.string()
+
+                        try {
+                            val jsonObject = JSONObject(errorBody ?: "")
+                            val errors = jsonObject.optJSONObject("errors")
+
+                            if (errors != null) {
+                                val usernameErrors = errors.optJSONArray("username")
+                                if (usernameErrors != null && usernameErrors.length() > 0) {
+                                    val usernameErrorMsg = usernameErrors.getString(0)
+                                    userField.error = usernameErrorMsg
+                                    userField.backgroundTintList = ColorStateList.valueOf(Color.RED)
+                                }
+
+                                val emailErrors = errors.optJSONArray("email")
+                                if (emailErrors != null && emailErrors.length() > 0) {
+                                    val emailErrorMsg = emailErrors.getString(0)
+                                    emailField.error = emailErrorMsg
+                                    emailField.backgroundTintList = ColorStateList.valueOf(Color.RED)
+                                }
+                            }
+
+                            Toast.makeText(this@activity_signin, jsonObject.optString("message", "Error al registrar"), Toast.LENGTH_LONG).show()
+
+                            } catch (e: Exception) {
+                                Log.e("RegistroError", "No se pudo parsear error JSON: ${e.message}")
+                                Toast.makeText(this@activity_signin, "Error inesperado", Toast.LENGTH_LONG).show()
+                            }
                         }
                     } catch (e: Exception) {
                         Log.e("RegistroCatch", "Excepción al procesar respuesta: ${e.message}")
@@ -139,17 +182,17 @@ class activity_signin : AppCompatActivity() {
 
     private fun setupFieldValidations() {
         // Validación para usuario
-        userField.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable?) {
-                validateUsername()
-                userField.nextFocusDownId = if (validateUsername()) R.id.nombre else View.NO_ID
-            }
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-        })
+//        userField.addTextChangedListener(object : TextWatcher {
+//            override fun afterTextChanged(s: Editable?) {
+//                validateUsername()
+//                userField.nextFocusDownId = if (validateUsername()) R.id.nombre else View.NO_ID
+//            }
+//            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+//            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+//        })
         nameField.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                validateUsername()
+                validateName()
                 nameField.nextFocusDownId = if (validateName()) R.id.apellido else View.NO_ID
             }
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -158,7 +201,7 @@ class activity_signin : AppCompatActivity() {
 
         lastnamesField.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                validateUsername()
+                validateLastName()
                 lastnamesField.nextFocusDownId = if (validateLastName()) R.id.phone_number else View.NO_ID
             }
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -194,6 +237,8 @@ class activity_signin : AppCompatActivity() {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })
+
+
         // Validación para adress
         addressField.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
@@ -203,21 +248,36 @@ class activity_signin : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })
     }
-    private fun validateUsername(): Boolean {
+
+    private fun validateUsername(callback: (Boolean) -> Unit) {
         val username = userField.text.toString().trim()
         if (username.isEmpty()) {
             userField.error = "Usuario requerido"
             userField.backgroundTintList = ColorStateList.valueOf(Color.RED)
-            return false
+            callback(false)
+            return
         }
-        /*if (existingUsers.contains(username)) {
-            userField.error = "Usuario ya existe"
-            userField.backgroundTintList = ColorStateList.valueOf(Color.RED)
-            return false
-        }*/
-        userField.error = null
-        userField.backgroundTintList = ColorStateList.valueOf(Color.GREEN)
-        return true
+
+        // Llamada a la API para validar existencia del nombre de usuario
+        RetrofitClient.api.checkUsername(username).enqueue(object : Callback<UsernameCheckResponse> {
+            override fun onResponse(call: Call<UsernameCheckResponse>, response: Response<UsernameCheckResponse>) {
+                if (response.isSuccessful && response.body()?.exists == true) {
+                    userField.error = "Usuario ya existe"
+                    userField.backgroundTintList = ColorStateList.valueOf(Color.RED)
+                    callback(false)
+                } else {
+                    userField.error = null
+                    userField.backgroundTintList = ColorStateList.valueOf(Color.GREEN)
+                    callback(true)
+                }
+            }
+
+            override fun onFailure(call: Call<UsernameCheckResponse>, t: Throwable) {
+                userField.error = "Error al verificar usuario"
+                userField.backgroundTintList = ColorStateList.valueOf(Color.RED)
+                callback(false)
+            }
+        })
     }
     private fun validateName(): Boolean {
         val name = nameField.text.toString().trim()
@@ -300,6 +360,29 @@ class activity_signin : AppCompatActivity() {
             }
         }
     }
+    private var isPasswordVisible = false
+    private fun setupPasswordToggle(passwordField: EditText) {
+        passwordField.setOnTouchListener { v, event ->
+            val drawableEnd = 2 // Right drawable
+            if (event.action == MotionEvent.ACTION_UP) {
+                val drawable = passwordField.compoundDrawables[drawableEnd]
+                if (drawable != null && event.rawX >= (passwordField.right - drawable.bounds.width())) {
+                    isPasswordVisible = !isPasswordVisible
+                    if (isPasswordVisible) {
+                        passwordField.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+                        passwordField.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.eye, 0)
+                    } else {
+                        passwordField.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                        passwordField.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.eye, 0)
+                    }
+                    // Mantener el cursor al final
+                    passwordField.setSelection(passwordField.text.length)
+                    return@setOnTouchListener true
+                }
+            }
+            false
+        }
+    }
     private fun showPasswordError(message: String) {
         passwordField.error = message
         passwordField.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.red))
@@ -317,6 +400,7 @@ class activity_signin : AppCompatActivity() {
         }
         return true
     }
+
     private fun setupSpinner() {
         // Crear un ArrayAdapter usando el array de categorías
         val adapter = ArrayAdapter.createFromResource(
@@ -354,7 +438,7 @@ class activity_signin : AppCompatActivity() {
         return true
     }
     private fun validateAllFields(): Boolean {
-        val usernameValid = validateUsername()
+//        val usernameValid = validateUsername()
         val nameValid = validateName()
         val lastValid = validateLastName()
         val phoneValid = validatePhone()
@@ -362,6 +446,6 @@ class activity_signin : AppCompatActivity() {
         val passwordValid = validatePassword()
         val adressValid = validateAdress()
         val spinnerValid = validateSpinner()
-        return usernameValid && nameValid && lastValid && phoneValid && emailValid && passwordValid && adressValid && spinnerValid
+        return /*usernameValid &&*/ nameValid && lastValid && phoneValid && emailValid && passwordValid && adressValid && spinnerValid
     }
 }

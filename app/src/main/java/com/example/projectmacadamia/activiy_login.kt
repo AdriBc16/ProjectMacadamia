@@ -5,10 +5,14 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
+import android.text.InputType
 import android.text.TextWatcher
+import android.util.Log
+import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -17,10 +21,12 @@ import androidx.core.content.ContextCompat
 import com.example.projectmacadamia.api.RetrofitClient
 import com.example.projectmacadamia.modelo.LoginRequest
 import com.example.projectmacadamia.modelo.LoginResponse
+import com.google.gson.Gson
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Callback
+import java.util.Locale
 
 class activiy_login : AppCompatActivity() {
 
@@ -34,9 +40,10 @@ class activiy_login : AppCompatActivity() {
         val botonLogIn = findViewById<Button>(R.id.botonLogin)
         val botonSignin = findViewById<TextView>(R.id.button_signin)
 
-
         userField = findViewById(R.id.user)
         passwordField = findViewById(R.id.password)
+        setupPasswordToggle(passwordField)
+
         botonSignin.setOnClickListener {
             val intent = Intent(this@activiy_login, activity_signin::class.java)
             startActivity(intent)
@@ -57,6 +64,7 @@ class activiy_login : AppCompatActivity() {
 
             RetrofitClient.api.login(loginRequest).enqueue(object : Callback<LoginResponse> {
                 override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+
                     if (response.isSuccessful && response.body() != null) {
                         val loginResponse = response.body()!!
                         val token = loginResponse.token
@@ -71,11 +79,26 @@ class activiy_login : AppCompatActivity() {
                             putString("email", user.email)
                             putString("phone", user.phone)
                             putString("address", user.address)
-                            apply()
+                            putString("category", user.category)
+//                            apply()
+                            commit()
                         }
 
                         Toast.makeText(this@activiy_login, "Login exitoso", Toast.LENGTH_SHORT).show()
-                        startActivity(Intent(this@activiy_login, PadreActivity::class.java))
+
+                        val category = user.category.trim().lowercase()
+                        when (category) {
+                            "produccion" -> {
+                                startActivity(Intent(this@activiy_login, Padre2Activity::class.java))
+                            }
+                            "cliente" -> {
+                                startActivity(Intent(this@activiy_login, PadreActivity::class.java))
+                            }
+                            else -> {
+                                Toast.makeText(this@activiy_login, "Categoría desconocida: '$category'", Toast.LENGTH_SHORT).show()
+                                return
+                            }
+                        }
                         finish()
                     } else {
                         // Extraer el mensaje del cuerpo de error
@@ -95,9 +118,7 @@ class activiy_login : AppCompatActivity() {
                     Toast.makeText(this@activiy_login, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
                 }
             })
-
         }
-
     }
 
     private fun setupFieldValidations() {
@@ -127,11 +148,6 @@ class activiy_login : AppCompatActivity() {
             userField.backgroundTintList = ColorStateList.valueOf(Color.RED)
             return false
         }
-        /*if (existingUsers.contains(username)) {
-            userField.error = "Usuario ya existe"
-            userField.backgroundTintList = ColorStateList.valueOf(Color.RED)
-            return false
-        }*/
         userField.error = null
         userField.backgroundTintList = ColorStateList.valueOf(Color.GREEN)
         return true
@@ -150,6 +166,30 @@ class activiy_login : AppCompatActivity() {
             }
         }
     }
+    private var isPasswordVisible = false
+
+    private fun setupPasswordToggle(passwordField: EditText) {
+        passwordField.setOnTouchListener { v, event ->
+            val drawableEnd = 2 // Right drawable
+            if (event.action == MotionEvent.ACTION_UP) {
+                val drawable = passwordField.compoundDrawables[drawableEnd]
+                if (drawable != null && event.rawX >= (passwordField.right - drawable.bounds.width())) {
+                    isPasswordVisible = !isPasswordVisible
+                    if (isPasswordVisible) {
+                        passwordField.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+                        passwordField.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.eye, 0)
+                    } else {
+                        passwordField.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                        passwordField.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.eye, 0)
+                    }
+                    // Mantener el cursor al final
+                    passwordField.setSelection(passwordField.text.length)
+                    return@setOnTouchListener true
+                }
+            }
+            false
+        }
+    }
 
     private fun showPasswordError(message: String) {
         passwordField.error = message
@@ -166,5 +206,4 @@ class activiy_login : AppCompatActivity() {
         val passwordValid = validatePassword()
         return usernameValid && passwordValid
     }
-
 }

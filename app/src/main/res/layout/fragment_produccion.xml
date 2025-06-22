@@ -46,7 +46,7 @@
             android:background="@color/dark_green"/>
 
         <Button
-            android:id="@+id/btnAgregar"
+            android:id="@+id/agregar"
             style="@style/LightGreenButtonMenu"
             android:layout_width="match_parent"
             android:layout_height="70dp"

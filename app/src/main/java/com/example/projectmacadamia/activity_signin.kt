@@ -93,10 +93,25 @@ class activity_signin : AppCompatActivity() {
                 override fun onResponse(call: Call<RegisterResponse>, response: Response<RegisterResponse>) {
                     try {
                         if (response.isSuccessful && response.body() != null) {
+                            val user = response.body()!!.usuario
+
+                            // Guardar en SharedPreferences
+                            val prefs = getSharedPreferences("auth", MODE_PRIVATE)
+                            prefs.edit().apply {
+                                putString("username", user.username)
+                                putString("name", user.name)
+                                putString("lastnames", user.lastnames)
+                                putString("email", user.email)
+                                putString("phone", user.phone)
+                                putString("address", user.address)
+                                apply()
+                            }
+
                             Toast.makeText(this@activity_signin, "Usuario registrado correctamente", Toast.LENGTH_SHORT).show()
                             startActivity(Intent(this@activity_signin, PadreActivity::class.java))
                             finish()
-                        } else {
+
+                    } else {
                             val errorText = response.errorBody()?.string() ?: "Error desconocido"
                             Log.e("RegistroError", "Código: ${response.code()}, Error: $errorText")
                             Toast.makeText(this@activity_signin, "Error al registrar: $errorText", Toast.LENGTH_LONG).show()

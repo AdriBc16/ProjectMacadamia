@@ -5,16 +5,16 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/homeFragment">
 
-    <fragment
-        android:id="@+id/profileFragment"
-        android:name="com.example.projectmacadamia.ActivarProductos"
-        android:label="Profile"
-        tools:layout="@layout/fragment_activar_productos" />
 <!--    <fragment-->
 <!--        android:id="@+id/profileFragment"-->
-<!--        android:name="com.example.projectmacadamia.ProfileFragment"-->
+<!--        android:name="com.example.projectmacadamia.ActivarProductos"-->
 <!--        android:label="Profile"-->
-<!--        tools:layout="@layout/fragment_profile" />-->
+<!--        tools:layout="@layout/fragment_activar_productos" />-->
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.projectmacadamia.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/homeFragment"

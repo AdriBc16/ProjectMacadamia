@@ -1,59 +1,75 @@
 package com.example.projectmacadamia
 
+import android.app.AlertDialog
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [TortasCatFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class TortasCatFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private val imagenesMap = mapOf(
+        R.id.tortaChocolate to R.drawable.tortachocolate,
+        R.id.TortacaramelCarrotCake to R.drawable.tortacaramelzanahoria,
+        R.id.tortaChocoMousse to R.drawable.tortachocomousse,
+        R.id.TortaLemonBerry to R.drawable.tortalemonberry,
+        R.id.tortaBirthdayCake to R.drawable.tortabirthday,
+        R.id.TortaRedVelvet to R.drawable.tortaredvelvet,
+        R.id.tortaCookieDough to R.drawable.tortacookiedough,
+        R.id.TortaOreo to R.drawable.tortaoreo,
+        R.id.BanoffePie to R.drawable.tortabanoffee,
+        R.id.ChocolatePie to R.drawable.tortachocolate
+    )
+
+    private fun mostrarPopup(textoBoton: String, imagenResId: Int) {
+        val opciones = textoBoton.trim().split(" ")
+        if (opciones.size != 2) {
+            Toast.makeText(requireContext(), "Formato inválido", Toast.LENGTH_SHORT).show()
+            return
         }
+
+        val opcionesFormateadas = opciones.map { opcion ->
+            val partes = opcion.split("/")
+            if (partes.size == 2) {
+                val porciones = partes[0]
+                val precioTexto = partes[1].replace("bs", "", ignoreCase = true)
+                val precio = precioTexto.toIntOrNull() ?: 0
+                Pair("$porciones - ${precio} Bs", precio)
+            } else {
+                Pair("Opción inválida", 0)
+            }
+        }
+
+        val nombres = opcionesFormateadas.map { it.first }
+        val precios = opcionesFormateadas.map { it.second }
+
+        AlertDialog.Builder(requireContext())
+            .setTitle("Selecciona una opción")
+            .setItems(nombres.toTypedArray()) { _, which ->
+                Carrito.agregar(Productos(nombres[which], precios[which], imagenResId, 1))
+                Toast.makeText(requireContext(), "${nombres[which]} agregada al carrito", Toast.LENGTH_SHORT).show()
+            }
+            .show()
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_tortas_cat, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment TortasCatFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            TortasCatFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        imagenesMap.forEach { (botonId, imagenResId) ->
+            view.findViewById<Button>(botonId)?.setOnClickListener { boton ->
+                val texto = (boton as Button).text.toString()
+                mostrarPopup(texto, imagenResId)
             }
+        }
     }
 }

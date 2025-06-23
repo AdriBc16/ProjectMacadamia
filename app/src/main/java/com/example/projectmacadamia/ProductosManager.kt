@@ -8,7 +8,6 @@ object ProductosManager {
     val productos: LiveData<List<Productos>> get() = _productos
 
     init {
-        // Inicializa con la lista de productos (puedes cargarla desde una BD luego)
         _productos.value = listOf(
             Productos("Galleta Chocochips", 16, R.drawable.chocochip, cantidad = 1, activo = false),
             Productos("Galleta Duo", 16, R.drawable.duo, cantidad = 1, activo = false),

@@ -1,12 +1,12 @@
 package com.example.projectmacadamia
 
 import android.app.AlertDialog
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.Toast
+import android.widget.*
 import androidx.fragment.app.Fragment
 
 class TortasCatFragment : Fragment() {
@@ -43,24 +43,85 @@ class TortasCatFragment : Fragment() {
             }
         }
 
-        val nombres = opcionesFormateadas.map { it.first }
-        val precios = opcionesFormateadas.map { it.second }
+        val layout = LinearLayout(requireContext()).apply {
+            orientation = LinearLayout.VERTICAL
+            setPadding(50, 40, 50, 10)
+        }
 
-        AlertDialog.Builder(requireContext())
-            .setTitle("Selecciona una opción")
-            .setItems(nombres.toTypedArray()) { _, which ->
-                Carrito.agregar(Productos(nombres[which], precios[which], imagenResId, 1))
-                Toast.makeText(requireContext(), "${nombres[which]} agregada al carrito", Toast.LENGTH_SHORT).show()
+        val dialog = AlertDialog.Builder(requireContext()).create()
+
+        val editText = EditText(requireContext()).apply {
+            hint = "sin nueces\ncon relleno"
+            setLines(3)
+        }
+
+        val textoDescripcion = TextView(requireContext()).apply {
+            text = "Descripción"
+            setPadding(0, 30, 0, 10)
+            textSize = 16f
+        }
+
+        val params = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        ).apply {
+            setMargins(0, 0, 0, 20)
+        }
+
+        val btn15p = Button(requireContext()).apply {
+            text = opcionesFormateadas[0].first
+            setBackgroundResource(R.drawable.rounded_corners)
+            setTextColor(Color.WHITE)
+            layoutParams = params
+            setOnClickListener {
+                val desc = editText.text.toString()
+                Carrito.agregar(
+                    Productos(
+                        nombre = opcionesFormateadas[0].first,
+                        precio = opcionesFormateadas[0].second,
+                        imagenResId = imagenResId,
+                        descripcion = desc
+                    )
+                )
+                Toast.makeText(requireContext(), "Agregado al carrito", Toast.LENGTH_SHORT).show()
+                dialog.dismiss()
             }
-            .show()
+        }
+
+        val btn25p = Button(requireContext()).apply {
+            text = opcionesFormateadas[1].first
+            setBackgroundResource(R.drawable.rounded_corners)
+            setTextColor(Color.WHITE)
+            layoutParams = params
+            setOnClickListener {
+                val desc = editText.text.toString()
+                Carrito.agregar(
+                    Productos(
+                        nombre = opcionesFormateadas[1].first,
+                        precio = opcionesFormateadas[1].second,
+                        imagenResId = imagenResId,
+                        descripcion = desc
+                    )
+                )
+                Toast.makeText(requireContext(), "Agregado al carrito", Toast.LENGTH_SHORT).show()
+                dialog.dismiss()
+            }
+        }
+
+        layout.addView(btn15p)
+        layout.addView(btn25p)
+        layout.addView(textoDescripcion)
+        layout.addView(editText)
+
+        dialog.setTitle("Selecciona una opción")
+        dialog.setView(layout)
+        dialog.show()
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_tortas_cat, container, false)
-    }
+    ): View? = inflater.inflate(R.layout.fragment_tortas_cat, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -141,4 +141,18 @@
         <item name="android:textColorHint">@color/success_green</item>
         <item name="android:backgroundTint">@color/success_green</item>
     </style>
+
+    <style name="RedButton">
+        <item name="android:backgroundTint">@color/light_red</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="cornerRadius">30dp</item>
+        <item name="alpha">0.2</item>
+    </style>
+
+    <style name="AceptButton">
+        <item name="android:backgroundTint">@color/dark_green</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="cornerRadius">30dp</item>
+        <item name="alpha">0.2</item>
+    </style>
 </resources>

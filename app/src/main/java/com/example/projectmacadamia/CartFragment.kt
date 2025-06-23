@@ -39,5 +39,19 @@ class CartFragment : Fragment() {
         recyclerCart.adapter = adapter
 
         adapter.actualizarTotal()
+
+        btnConfirmCart.setOnClickListener {
+            val bundle = Bundle().apply {
+                putParcelableArrayList("productosConfirmados", ArrayList(productos))
+            }
+
+            val esperaFragment = EstadosFragment()
+            esperaFragment.arguments = bundle
+
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.nav_host_fragment, esperaFragment)
+                .addToBackStack(null)
+                .commit()
+        }
     }
 }

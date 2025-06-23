@@ -66,7 +66,7 @@
                     android:layout_height="55dp"
                     android:layout_marginStart="260dp"
                     android:layout_marginTop="225dp"
-                    android:text="@string/price310"/>
+                    android:text="@string/cheeseChocolateTru"/>
 
                 <Button
                     android:id="@+id/frutosRojos"
@@ -75,7 +75,7 @@
                     android:layout_height="55dp"
                     android:layout_marginStart="42dp"
                     android:layout_marginTop="538dp"
-                    android:text="@string/price350" />
+                    android:text="@string/cheeseFR" />
 
             </FrameLayout>
 
@@ -98,7 +98,7 @@
                     android:layout_height="55dp"
                     android:layout_marginStart="262dp"
                     android:layout_marginTop="216dp"
-                    android:text="@string/price310" />
+                    android:text="@string/cheeseManjar" />
 
                 <Button
                     android:id="@+id/carrotCake"
@@ -107,7 +107,7 @@
                     android:layout_height="55dp"
                     android:layout_marginStart="42dp"
                     android:layout_marginTop="528dp"
-                    android:text="@string/price310" />
+                    android:text="@string/cheeseCC" />
 
             </FrameLayout>
 
@@ -130,7 +130,7 @@
                     android:layout_height="55dp"
                     android:layout_marginStart="260dp"
                     android:layout_marginTop="228dp"
-                    android:text="@string/price310" />
+                    android:text="@string/cheeseCookie" />
 
                 <Button
                     android:id="@+id/cheesecakenutella"
@@ -139,7 +139,7 @@
                     android:layout_height="55dp"
                     android:layout_marginStart="42dp"
                     android:layout_marginTop="531dp"
-                    android:text="@string/price350" />
+                    android:text="@string/cheeseNutella" />
 
             </FrameLayout>
 
@@ -162,7 +162,7 @@
                     android:layout_height="55dp"
                     android:layout_marginStart="260dp"
                     android:layout_marginTop="224dp"
-                    android:text="@string/price310" />
+                    android:text="@string/cheesePie" />
 
                 <Button
                     android:id="@+id/lemonBerry"
@@ -171,7 +171,7 @@
                     android:layout_height="55dp"
                     android:layout_marginStart="45dp"
                     android:layout_marginTop="536dp"
-                    android:text="@string/price350" />
+                    android:text="@string/cheeseLemon" />
 
             </FrameLayout>
 
@@ -193,7 +193,7 @@
                     android:layout_height="55dp"
                     android:layout_marginStart="258dp"
                     android:layout_marginTop="230dp"
-                    android:text="@string/price350" />
+                    android:text="@string/cheeseChocolate" />
 
                 <Button
                     android:id="@+id/oreo"
@@ -202,7 +202,7 @@
                     android:layout_height="55dp"
                     android:layout_marginStart="38dp"
                     android:layout_marginTop="533dp"
-                    android:text="@string/price350" />
+                    android:text="@string/cheeseOreo" />
 
             </FrameLayout>
 
@@ -224,7 +224,7 @@
                     android:layout_height="55dp"
                     android:layout_marginStart="258dp"
                     android:layout_marginTop="230dp"
-                    android:text="@string/price310" />
+                    android:text="@string/cheeseApple" />
 
                 <Button
                     android:id="@+id/bombom"
@@ -233,7 +233,7 @@
                     android:layout_height="55dp"
                     android:layout_marginStart="44dp"
                     android:layout_marginTop="539dp"
-                    android:text="@string/price380" />
+                    android:text="@string/cheeseBombon" />
 
             </FrameLayout>
         </LinearLayout>

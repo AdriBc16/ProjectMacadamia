@@ -12,5 +12,8 @@
     <color name="green_overlay">#8067856C</color>    <!-- verde_views -->
 
     <!-- Gray -->
-    <color name="gray">#555555</color>               <!-- plomo -->
+    <color name="gray">#555555</color>
+
+    <!-- Red -->
+    <color name="light_red">#b95b5b</color>
 </resources>

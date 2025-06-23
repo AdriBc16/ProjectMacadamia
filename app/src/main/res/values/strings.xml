@@ -46,17 +46,39 @@
     <string name="shoppingCart">Carrito</string>
     <string name="home">Casa</string>
 
-
+    <!-- galletas -->
     <string name="price16">16 bs</string>
     <string name="price18">18 bs</string>
     <string name="price20">20 bs</string>
-    <string name="price310">16p/310bs</string>
-    <string name="price350">16p/350bs</string>
-    <string name="price380">16p/380bs</string>
-    <string name="price430">15p/270bs  25p/430bs</string>
-    <string name="price440">15p/280bs  25p/440bs</string>
-    <string name="price450">15p/280bs  25p/450bs</string>
 
+    <!-- tortas -->
+    <string name="tortaChocolate">15p/280bs  25p/440bs</string>
+    <string name="tortaZanahoria">15p/270bs  25p/430bs</string>
+    <string name="tortaChocoMouse">15p/270bs  25p/430bs</string>
+    <string name="tortaLemonBerry">15p/270bs  25p/440bs</string>
+    <string name="tortaBirthdayCake">15p/270bs  25p/440bs</string>
+    <string name="tortaRedVelvet">15p/280bs  25p/450bs</string>
+    <string name="tortaCookieDough">15p/270bs  25p/440bs</string>
+    <string name="tortaOreo">15p/270bs  25p/440bs</string>
+    <string name="PieBanoffe">20p/180bs</string>
+    <string name="PieChocolate">20p/320bs</string>
+    <!-- cheesecakes -->
+
+    <string name="cheeseChocolateTru">16p/310bs</string>
+    <string name="cheeseFR">16p/350bs</string>
+    <string name="cheeseManjar">16p/310bs</string>
+    <string name="cheeseCC">16p/310bs</string>
+    <string name="cheeseCookie">16p/310bs</string>
+    <string name="cheeseLemon">16p/310bs</string>
+    <string name="cheesePie">16p/310bs</string>
+    <string name="cheeseNutella">16p/350bs</string>
+    <string name="cheeseBerry">16p/350bs</string>
+    <string name="cheeseChocolate">16p/350bs</string>
+    <string name="cheeseOreo">16p/350bs</string>
+    <string name="cheeseApple">16p/310bs</string>
+    <string name="cheeseBombon">16p/380bs</string>
+
+    <!-- nombres productos -->
     <string name="chocochips"> Galleta Tradicional Chocochips</string>
     <string name="duo">Galleta Tradicional Duo</string>
     <string name="rv">Galleta Tradicional Red velvet</string>
@@ -93,6 +115,8 @@
     <string name="redvelt">Torta Red Velvet</string>
     <string name="cokieodugh">Torta Cookie Dough</string>
     <string name="oreo">Torta Oreo</string>
+    <string name="banoffe">Banoffe Pie</string>
+    <string name="piechoco">Chocolate Pie</string>
 
     <string name="anticipacion">PEDIDOS DE CATÁLOGO SON</string>
     <string name="anticipacion2">CON 48H DE ANTICIPACIÓN</string>
@@ -101,8 +125,12 @@
     <string name="delete">Eliminar producto</string>
     <string name="precio_total">%1$d bs</string>
     <string name="confirmar_con_precio">Confirm Order    %1$s</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="estados">Order Status</string>
+    <string name="ok">Aceppt</string>
+    <string name="no">Decline</string>
+    <string name="view">View</string>
+    <string name="aceppted">Order Aceppted</string>
 
 
 </resources>

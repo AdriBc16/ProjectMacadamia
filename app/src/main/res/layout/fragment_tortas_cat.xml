@@ -67,7 +67,7 @@
                     android:layout_height="55dp"
                     android:layout_marginStart="230dp"
                     android:layout_marginTop="220dp"
-                    android:text="@string/price440" />
+                    android:text="@string/tortaChocolate" />
 
                 <Button
                     android:id="@+id/TortacaramelCarrotCake"
@@ -76,7 +76,7 @@
                     android:layout_height="55dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="530dp"
-                    android:text="@string/price430" />
+                    android:text="@string/tortaZanahoria" />
 
             </FrameLayout>
 
@@ -100,7 +100,7 @@
                     android:layout_height="55dp"
                     android:layout_marginStart="230dp"
                     android:layout_marginTop="220dp"
-                    android:text="@string/price430" />
+                    android:text="@string/tortaChocoMouse" />
 
                 <Button
                     android:id="@+id/TortaLemonBerry"
@@ -109,7 +109,7 @@
                     android:layout_height="55dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="530dp"
-                    android:text="@string/price440" />
+                    android:text="@string/tortaLemonBerry" />
 
 
             </FrameLayout>
@@ -133,7 +133,7 @@
                     android:layout_height="56dp"
                     android:layout_marginStart="225dp"
                     android:layout_marginTop="218dp"
-                    android:text="@string/price440" />
+                    android:text="@string/tortaBirthdayCake" />
 
                 <Button
                     android:id="@+id/TortaRedVelvet"
@@ -142,7 +142,7 @@
                     android:layout_height="55dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="530dp"
-                    android:text="@string/price450" />
+                    android:text="@string/tortaRedVelvet" />
 
             </FrameLayout>
 
@@ -165,7 +165,7 @@
                     android:layout_height="55dp"
                     android:layout_marginStart="226dp"
                     android:layout_marginTop="215dp"
-                    android:text="@string/price440" />
+                    android:text="@string/tortaCookieDough" />
 
                 <Button
                     android:id="@+id/TortaOreo"
@@ -174,7 +174,7 @@
                     android:layout_height="55dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="540dp"
-                    android:text="@string/price440" />
+                    android:text="@string/tortaOreo" />
 
             </FrameLayout>
 
@@ -196,7 +196,7 @@
                     android:layout_height="55dp"
                     android:layout_marginStart="220dp"
                     android:layout_marginTop="216dp"
-                    android:text="@string/price430" />
+                    android:text="@string/PieBanoffe" />
 
                 <Button
                     android:id="@+id/ChocolatePie"
@@ -205,7 +205,7 @@
                     android:layout_height="55dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="513dp"
-                    android:text="@string/price440" />
+                    android:text="@string/piechoco" />
 
             </FrameLayout>
         </LinearLayout>
